@@ -54,9 +54,9 @@ function createGenreFilterSVG() {
             <rect width="50" height="25" x="15" y="37" fill="#667eea" rx="12"/>
             <rect width="35" height="25" x="75" y="37" fill="#e2e8f0" rx="12"/>
             <rect width="60" height="25" x="120" y="37" fill="#e2e8f0" rx="12"/>
-            <text x="40" y="52" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="bold">BL</text>
+            <text x="40" y="52" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="bold">원신</text>
             <text x="92" y="52" font-family="Arial, sans-serif" font-size="10" fill="#4a5568" text-anchor="middle" font-weight="bold">GL</text>
-            <text x="150" y="52" font-family="Arial, sans-serif" font-size="9" fill="#4a5568" text-anchor="middle" font-weight="bold">오리지널</text>
+            <text x="150" y="52" font-family="Arial, sans-serif" font-size="9" fill="#4a5568" text-anchor="middle" font-weight="bold">호요버스</text>
         </svg>
     `)}`;
 }
@@ -67,7 +67,7 @@ function createBookmarkSVG() {
             <rect width="200" height="100" fill="#667eea" rx="10"/>
             <text x="170" y="35" font-family="Arial, sans-serif" font-size="20" fill="#ffd700">★</text>
             <text x="20" y="30" font-family="Arial, sans-serif" font-size="14" fill="white" font-weight="bold">A-01</text>
-            <text x="20" y="70" font-family="Arial, sans-serif" font-size="10" fill="white">BL, 오리지널</text>
+            <text x="20" y="70" font-family="Arial, sans-serif" font-size="10" fill="white">GL, 붕괴: 스타레일</text>
         </svg>
     `)}`;
 }
