@@ -1084,7 +1084,7 @@ body {
     overflow: hidden;
 }
 
-/* 이미지 뷰어 컨테이너 (터치 동작 제어 강화) */
+/* 이미지 뷰어 컨테이너 */
 .image-viewer-container {
     flex: 1;
     position: relative;
@@ -1093,9 +1093,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    touch-action: none; /* 모바일에서 사이트 줌 방지 */
-    -webkit-touch-callout: none; /* iOS에서 길게 누르기 방지 */
-    -webkit-user-select: none; /* 텍스트 선택 방지 */
+    touch-action: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
     user-select: none;
 }
 
@@ -1107,7 +1107,7 @@ body {
     align-items: center;
     justify-content: center;
     cursor: grab;
-    touch-action: none; /* 모바일에서 사이트 줌 방지 */
+    touch-action: none;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     user-select: none;
@@ -1117,17 +1117,32 @@ body {
     cursor: grabbing;
 }
 
+/* 이미지 기본 드래그 완전 차단 */
 .image-viewer img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-    transition: none; /* 드래그 시 부드러운 움직임을 위해 transition 제거 */
+    transition: none;
     user-select: none;
     pointer-events: none;
-    touch-action: none; /* 모바일에서 사이트 줌 방지 */
+    touch-action: none;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
-    -webkit-user-drag: none; /* 이미지 드래그 방지 */
+    -webkit-user-drag: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    draggable: false; /* HTML 속성도 CSS로 강제 */
+    will-change: transform;
+    transform-origin: top left; /* 중요: 기준점을 왼쪽 상단으로 변경 */
+}
+
+/* 추가 브라우저 호환성 */
+.image-viewer img::selection {
+    background: transparent;
+}
+
+.image-viewer img::-moz-selection {
+    background: transparent;
 }
 
 .modal-arrow {
@@ -2301,4 +2316,6 @@ button:focus,
         -webkit-user-select: none !important;
         user-select: none !important;
     }
+    
+
 }

@@ -1,20 +1,26 @@
-// 이미지 모달 이벤트 리스너 설정
+// 이미지 모달 초기화
 function initializeImageModal() {
     const imageViewer = document.getElementById('imageViewer');
     
-    // 마우스 드래그 이벤트
+    // 드래그 이벤트 리스너
     imageViewer.addEventListener('mousedown', startDrag);
     imageViewer.addEventListener('mousemove', drag);
     imageViewer.addEventListener('mouseup', endDrag);
     imageViewer.addEventListener('mouseleave', endDrag);
     
-    // 터치 드래그 이벤트
+    // 터치 이벤트 리스너 (모바일)
     imageViewer.addEventListener('touchstart', startDrag, { passive: false });
     imageViewer.addEventListener('touchmove', drag, { passive: false });
     imageViewer.addEventListener('touchend', endDrag);
     
-    // 휠 줌 이벤트
+    // 휠 이벤트로 줌
     imageViewer.addEventListener('wheel', handleWheel, { passive: false });
+    
+    // 이미지 기본 드래그 방지
+    imageViewer.addEventListener('dragstart', function(e) {
+        e.preventDefault();
+        return false;
+    });
 }
 
 // 이미지 모달 열기
@@ -34,7 +40,7 @@ function openImageModal(boothNumber, imageIndex) {
     const modalPrevBtn = document.getElementById('modalPrevBtn');
     const modalNextBtn = document.getElementById('modalNextBtn');
     
-    // 제목에 부스명 포함 여부 결정
+    // 제목에 부스명 포함
     const titleText = booth.boothName ? 
         `${boothNumber} - ${booth.boothName}` : 
         boothNumber;
@@ -46,8 +52,8 @@ function openImageModal(boothNumber, imageIndex) {
     
     modalImage.src = booth.images[imageIndex];
     
+    // 슬라이더 컨트롤 생성
     modalSliderControls.innerHTML = '';
-    // 여러 이미지가 있는 경우 슬라이더 컨트롤 표시
     if (booth.images.length > 1) {
         booth.images.forEach((_, index) => {
             const dot = document.createElement('div');
@@ -73,11 +79,10 @@ function closeImageModal() {
     document.getElementById('imageModal').style.display = 'none';
 }
 
-// 모달 슬라이드 이동
+// 모달 슬라이드 변경
 function changeModalSlide(direction) {
     currentModalIndex += direction;
     
-    // 인덱스 범위 조정
     if (currentModalIndex < 0) {
         currentModalIndex = currentModalImages.length - 1;
     } else if (currentModalIndex >= currentModalImages.length) {
@@ -87,13 +92,12 @@ function changeModalSlide(direction) {
     updateModalSlide();
 }
 
-// 특정 슬라이드로 이동
 function goToModalSlide(index) {
     currentModalIndex = index;
     updateModalSlide();
 }
 
-// 모달 슬라이드 화면 업데이트
+// 모달 슬라이드 업데이트
 function updateModalSlide() {
     const modalImage = document.getElementById('modalImage');
     const modalTitle = document.getElementById('imageModalTitle');
@@ -101,7 +105,7 @@ function updateModalSlide() {
     
     modalImage.src = currentModalImages[currentModalIndex];
     
-    // 이미지 번호 업데이트
+    // 제목에서 이미지 번호만 업데이트
     const subtitle = modalTitle.querySelector('.image-modal-subtitle');
     if (subtitle) {
         subtitle.textContent = `이미지 ${currentModalIndex + 1}/${currentModalImages.length}`;
@@ -118,14 +122,13 @@ function updateModalSlide() {
     });
 }
 
-// 이미지 줌 변경
+// 줌 기능
 function zoomImage(delta) {
     currentZoom = Math.max(CONFIG.ZOOM_MIN, Math.min(CONFIG.ZOOM_MAX, currentZoom + delta));
     updateZoomDisplay();
     updateImageTransform();
 }
 
-// 줌 초기화
 function resetZoom() {
     currentZoom = 1;
     imagePosition = { x: 0, y: 0 };
@@ -133,27 +136,16 @@ function resetZoom() {
     updateImageTransform();
 }
 
-// 줌 레벨 표시 업데이트
 function updateZoomDisplay() {
     document.getElementById('zoomLevel').textContent = Math.round(currentZoom * 100) + '%';
 }
 
-// 이미지 변형 적용
 function updateImageTransform() {
     const modalImage = document.getElementById('modalImage');
-    modalImage.style.transform = `scale(${currentZoom}) translate(${imagePosition.x}px, ${imagePosition.y}px)`;
+    modalImage.style.transform = `translate(${imagePosition.x}px, ${imagePosition.y}px) scale(${currentZoom})`;
 }
 
-// 이미지 위치 제한
-function constrainImagePosition() {
-    // 기본 줌 상태에서만 중앙 정렬
-    if (currentZoom <= 1) {
-        imagePosition.x = 0;
-        imagePosition.y = 0;
-    }
-}
-
-// 휠로 줌 처리
+// 휠로 줌
 function handleWheel(e) {
     e.preventDefault();
     e.stopPropagation();
@@ -162,37 +154,63 @@ function handleWheel(e) {
     zoomImage(delta);
 }
 
-// 드래그 시작
+// 드래그 시작 (완전히 새로운 방식)
 function startDrag(e) {
+    // 이미지 기본 드래그 방지
     e.preventDefault();
     e.stopPropagation();
     
     isDragging = true;
+    
+    // 현재 마우스/터치 위치
     const clientX = e.clientX || (e.touches && e.touches[0].clientX);
     const clientY = e.clientY || (e.touches && e.touches[0].clientY);
     
-    dragStart.x = clientX - imagePosition.x;
-    dragStart.y = clientY - imagePosition.y;
+    // 드래그 시작점 = 현재 마우스 위치
+    dragStart.x = clientX;
+    dragStart.y = clientY;
+    
+    // 드래그 시작 시점의 이미지 위치 저장
+    dragStart.imageX = imagePosition.x;
+    dragStart.imageY = imagePosition.y;
+    
+    console.log('드래그 시작:', {
+        마우스: { x: clientX, y: clientY },
+        이미지위치: { x: imagePosition.x, y: imagePosition.y }
+    });
 }
 
-// 드래그 중
+// 드래그 (지도와 동일한 방식)
 function drag(e) {
     if (!isDragging) return;
 
     e.preventDefault();
     e.stopPropagation();
 
+    // 현재 마우스/터치 위치
     const clientX = e.clientX || (e.touches && e.touches[0].clientX);
     const clientY = e.clientY || (e.touches && e.touches[0].clientY);
 
-    // 손가락 움직임만큼 이미지 이동
-    imagePosition.x = clientX - dragStart.x;
-    imagePosition.y = clientY - dragStart.y;
+    // 마우스 이동 거리 계산
+    const moveX = clientX - dragStart.x;
+    const moveY = clientY - dragStart.y;
 
+    // 이미지 새 위치 = 시작 위치 + 마우스 이동 거리
+    imagePosition.x = dragStart.imageX + moveX;
+    imagePosition.y = dragStart.imageY + moveY;
+
+    // 즉시 적용
     updateImageTransform();
+    
+    console.log('드래그 중:', {
+        마우스이동: { x: moveX, y: moveY },
+        새위치: { x: imagePosition.x, y: imagePosition.y }
+    });
 }
 
-// 드래그 종료
 function endDrag() {
+    if (isDragging) {
+        console.log('드래그 종료');
+    }
     isDragging = false;
 }
