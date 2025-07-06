@@ -1,0 +1,54 @@
+{
+  "eventName": "코믹월드 2025 SUMMER",
+  "booths": [
+    {
+      "boothNumber": "CG_36",
+      "boothName": "제비꽃말이덮",
+      "promoUrl": "https://x.com/eunmyeong99/status/1933777582828499449",
+      "orderUrl": "https://witchform.com/deposit_form.php?idx=846766",
+      "images": [
+        "https://pbs.twimg.com/media/GtYodnLbkAARO3R?format=jpg",
+        "https://pbs.twimg.com/media/GtYodngbIAASSdG?format=jpg",
+        "https://pbs.twimg.com/media/GtYodqibMAgVkX4?format=jpg"
+      ],
+      "genres": [
+        "호요버스",
+        "원신",
+        "붕괴: 스타레일",
+        "젠레스 존 제로"
+      ]
+    },
+    {
+      "boothNumber": "CG_42",
+      "boothName": "아이스바나나",
+      "promoUrl": "",
+      "orderUrl": "",
+      "images": [
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/15/20250615074456_iq2mav1tog.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/15/20250615074501_vbn8hsa05x.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/15/20250615074506_wuegbaftj0.jpg"
+      ],
+      "genres": [
+        "프로젝트 세카이"
+      ]
+    },
+    {
+      "boothNumber": "CG_60",
+      "boothName": "파스텔라",
+      "promoUrl": "https://witchform.com/payform/?uuid=0Y3WDWFU4A",
+      "orderUrl": "https://witchform.com/payform/?uuid=0Y3WDWFU4A",
+      "images": [
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/11/20250611033703_fgphdo5r1i.png",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/11/20250611035321_kvsixfp6j5.png",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/11/20250611035321_mjan24s8vo.png",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/11/20250611035321_6w1srxnqvl.png",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/11/20250611035321_dw3lnsxuj1.png",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/11/20250611035321_quf6agd1rn.png"
+      ],
+      "genres": [
+        "버츄얼",
+        "스텔라이브"
+      ]
+    }
+  ]
+}

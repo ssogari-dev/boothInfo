@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>부스 정보 에디터</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            text-align: center;
+            color: #4a5568;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .header-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #4299e1;
+            color: white;
+        }
+
+        .btn-success {
+            background: #48bb78;
+            color: white;
+        }
+
+        .btn-warning {
+            background: #ed8936;
+            color: white;
+        }
+
+        .btn-danger {
+            background: #f56565;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .editor-section {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            color: #4a5568;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #4a5568;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #4299e1;
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+        }
+
+        .booth-list {
+            display: grid;
+            gap: 15px;
+        }
+
+        .booth-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            border: 1px solid #e2e8f0;
+            position: relative;
+        }
+
+        .booth-item h4 {
+            color: #4a5568;
+            margin-bottom: 10px;
+        }
+
+        .remove-booth-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #f56565;
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .remove-booth-btn:hover {
+            background: #e53e3e;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .image-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .image-item {
+            background: #e2e8f0;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            position: relative;
+            padding-right: 25px;
+        }
+
+        .remove-image-btn {
+            position: absolute;
+            top: 2px;
+            right: 5px;
+            background: none;
+            border: none;
+            color: #f56565;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        .genre-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        .genre-item {
+            background: #667eea;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            position: relative;
+            padding-right: 20px;
+        }
+
+        .remove-genre-btn {
+            position: absolute;
+            top: 1px;
+            right: 3px;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 0.7rem;
+        }
+
+        .add-btn {
+            background: #48bb78;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        .add-btn:hover {
+            background: #38a169;
+        }
+
+        .json-preview {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            white-space: pre-wrap;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .file-input {
+            margin-bottom: 15px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .autocomplete-container {
+            position: relative;
+        }
+
+        .autocomplete-suggestions {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .suggestion-item {
+            padding: 10px 15px;
+            cursor: pointer;
+            border-bottom: 1px solid #f0f0f0;
+            transition: background-color 0.2s ease;
+        }
+
+        .suggestion-item:hover,
+        .suggestion-item.highlighted {
+            background-color: #f0f8ff;
+        }
+
+        .suggestion-item:last-child {
+            border-bottom: none;
+        }
+
+        .suggestion-category {
+            font-size: 0.8rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .genre-input-container {
+            position: relative;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .sort-controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+
+        .sort-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .sort-btn:hover {
+            background: #5a67d8;
+            transform: translateY(-1px);
+        }
+
+        .sort-info {
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .floating-add-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #48bb78;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 2rem;
+            font-weight: bold;
+            box-shadow: 0 4px 20px rgba(72, 187, 120, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .floating-add-btn:hover {
+            background: #38a169;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(56, 161, 105, 0.6);
+        }
+
+        .floating-add-btn:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+
+        /* 기존 헤더의 새 부스 추가 버튼과 구분하기 위해 스타일 조정 */
+        .header-controls .btn-warning {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>부스 정보 에디터</h1>
+        <div class="header-controls">
+            <input type="file" id="fileInput" accept=".json" class="hidden">
+            <button class="btn btn-primary" onclick="loadFile()">JSON 파일 불러오기</button>
+            <button class="btn btn-success" onclick="downloadJSON()">JSON 파일 내보내기</button>
+            <button class="btn btn-warning" onclick="addBooth()">새 부스 추가</button>
+            <a href="index.html" class="btn btn-danger">메인 사이트로 돌아가기</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- 행사 정보 섹션 -->
+        <div class="editor-section">
+            <h2 class="section-title">행사 정보</h2>
+            <div class="form-group">
+                <label for="eventName">행사명</label>
+                <input type="text" id="eventName" class="form-control" placeholder="예: 코믹월드 2025 여름">
+            </div>
+        </div>
+
+        <!-- 부스 목록 섹션 -->
+        <div class="editor-section">
+            <h2 class="section-title">부스 목록</h2>
+            <div class="sort-controls">
+                <button class="sort-btn" onclick="sortBooths()">부스 번호 순으로 정렬</button>
+                <span class="sort-info">정렬 순서: A~Z → AA~ZZ → 알파벳-번호 순</span>
+            </div>
+            <div id="boothList" class="booth-list">
+                <!-- 부스 항목들이 여기에 동적으로 추가됩니다 -->
+            </div>
+        </div>
+
+        <!-- JSON 미리보기 섹션 -->
+        <div class="editor-section">
+            <h2 class="section-title">JSON 미리보기</h2>
+            <div id="jsonPreview" class="json-preview"></div>
+        </div>
+    </div>
+
+    <button class="floating-add-btn" onclick="addBoothAndScroll()" title="새 부스 추가">
+        +
+    </button>
+
+    <script>
+        let eventData = {
+            eventName: "",
+            booths: []
+        };
+
+        // 미리 정의된 장르 목록
+        const predefinedGenres = [
+            '호요버스', '붕괴: 스타레일', '원신', '젠레스 존 제로', '붕괴3rd',
+            '명일방주', '명조: 워더링 웨이브', '트릭컬 RE:VIVE', '음성합성엔진 (한국)', '음성합성엔진 (일본)',
+            '프로젝트 세카이', '오리지널 캐릭터', '앙상블 스타즈', '러브 라이브', '아이돌 마스터', '블루 아카이브',
+            '승리의 여신: 니케', '홀로라이브', '니지산지', '버츄얼', '스텔라이브', '이터널 리턴', '뱅드림', '동방 프로젝트',
+            'GL (백합)', '기업부스', '아카데미존', '팬사인존', '봇치 더 록', '걸즈 밴드 크라이', '스파이 패밀리', '장송의 프리렌',
+            '림버스 컴퍼니', 'AI 사용'
+        ];
+
+        // 현재 활성화된 자동완성
+        let currentAutocomplete = null;
+        let selectedSuggestionIndex = -1;
+        
+        // 부스 번호 정렬 함수
+        function parseBoothNumber(boothNumber) {
+            // 부스 번호를 알파벳 부분과 숫자 부분으로 분리
+            const match = boothNumber.match(/^([A-Z]+)-?(\d+)?$/);
+            if (match) {
+                const letters = match[1];
+                const number = match[2] ? parseInt(match[2]) : 0;
+                return { letters, number };
+            }
+            return { letters: boothNumber, number: 0 };
+        }
+
+        function sortBooths() {
+            if (eventData.booths.length === 0) {
+                alert('정렬할 부스가 없습니다.');
+                return;
+            }
+
+            // 부스 번호 정렬
+            eventData.booths.sort((a, b) => {
+                const parsedA = parseBoothNumber(a.boothNumber || '');
+                const parsedB = parseBoothNumber(b.boothNumber || '');
+
+                // 1. 알파벳 부분의 길이로 먼저 정렬 (A, B, C... 다음에 AA, AB, AC...)
+                if (parsedA.letters.length !== parsedB.letters.length) {
+                    return parsedA.letters.length - parsedB.letters.length;
+                }
+
+                // 2. 같은 길이면 알파벳 순으로 정렬
+                if (parsedA.letters !== parsedB.letters) {
+                    return parsedA.letters.localeCompare(parsedB.letters);
+                }
+
+                // 3. 알파벳이 같으면 숫자 순으로 정렬
+                return parsedA.number - parsedB.number;
+            });
+
+            // UI 다시 로드
+            loadEventData();
+            
+            // 정렬 완료 메시지
+            const sortedNumbers = eventData.booths.map(booth => booth.boothNumber).filter(Boolean);
+            if (sortedNumbers.length > 0) {
+                alert(`부스가 정렬되었습니다!\n순서: ${sortedNumbers.slice(0, 10).join(', ')}${sortedNumbers.length > 10 ? '...' : ''}`);
+            }
+        }
+
+        // 페이지 로드 시 초기화
+        document.addEventListener('DOMContentLoaded', function() {
+            updatePreview();
+            
+            // 이벤트 리스너 추가
+            document.getElementById('eventName').addEventListener('input', function() {
+                eventData.eventName = this.value;
+                updatePreview();
+            });
+
+            // 문서 클릭 시 자동완성 닫기
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.autocomplete-container')) {
+                    closeAutocomplete();
+                }
+            });
+        });
+
+        // 모든 장르 수집 (기존 데이터 + 미리 정의된 장르)
+        function getAllGenres() {
+            const existingGenres = new Set();
+            
+            // 현재 데이터에서 장르 수집
+            eventData.booths.forEach(booth => {
+                if (booth.genres) {
+                    booth.genres.forEach(genre => existingGenres.add(genre));
+                }
+            });
+
+            // 미리 정의된 장르와 합치기
+            const allGenres = [...new Set([...predefinedGenres, ...existingGenres])];
+            return allGenres.sort();
+        }
+
+        // 자동완성 표시
+        function showAutocomplete(input, suggestions) {
+            closeAutocomplete(); // 기존 자동완성 닫기
+
+            if (suggestions.length === 0) return;
+
+            const container = input.parentElement;
+            const suggestionDiv = document.createElement('div');
+            suggestionDiv.className = 'autocomplete-suggestions';
+            
+            suggestions.forEach((suggestion, index) => {
+                const item = document.createElement('div');
+                item.className = 'suggestion-item';
+                
+                // 미리 정의된 장르인지 확인
+                const isPredefined = predefinedGenres.includes(suggestion);
+                item.innerHTML = `
+                    ${suggestion}
+                    ${isPredefined ? '<span class="suggestion-category">(추천)</span>' : '<span class="suggestion-category">(기존 데이터)</span>'}
+                `;
+                
+                item.addEventListener('click', function() {
+                    input.value = suggestion;
+                    closeAutocomplete();
+                    input.focus();
+                });
+                
+                suggestionDiv.appendChild(item);
+            });
+
+            container.appendChild(suggestionDiv);
+            currentAutocomplete = suggestionDiv;
+            selectedSuggestionIndex = -1;
+        }
+
+        // 자동완성 닫기
+        function closeAutocomplete() {
+            if (currentAutocomplete) {
+                currentAutocomplete.remove();
+                currentAutocomplete = null;
+                selectedSuggestionIndex = -1;
+            }
+        }
+
+        // 장르 입력 필터링
+        function filterGenres(input) {
+            const value = input.toLowerCase().trim();
+            if (value.length < 1) return [];
+
+            const allGenres = getAllGenres();
+            return allGenres.filter(genre => 
+                genre.toLowerCase().includes(value)
+            ).slice(0, 10); // 최대 10개만 표시
+        }
+
+        function addBoothAndScroll() {
+            const currentLength = eventData.booths.length;
+            addBooth();
+            
+            // 새로 추가된 부스로 스크롤
+            setTimeout(() => {
+                const newBoothElement = document.querySelectorAll('.booth-item')[currentLength];
+                if (newBoothElement) {
+                    newBoothElement.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'center' 
+                    });
+                    
+                    // 부스 번호 입력 필드에 포커스
+                    const boothNumberInput = newBoothElement.querySelector('input[placeholder*="A-01"]');
+                    if (boothNumberInput) {
+                        setTimeout(() => {
+                            boothNumberInput.focus();
+                        }, 500);
+                    }
+                }
+            }, 100);
+        }
+
+        // 키보드 네비게이션 처리
+        function handleAutocompleteKeydown(event, input) {
+            if (!currentAutocomplete) return;
+
+            const suggestions = currentAutocomplete.querySelectorAll('.suggestion-item');
+            
+            switch (event.key) {
+                case 'ArrowDown':
+                    event.preventDefault();
+                    selectedSuggestionIndex = Math.min(selectedSuggestionIndex + 1, suggestions.length - 1);
+                    updateSuggestionHighlight(suggestions);
+                    break;
+                    
+                case 'ArrowUp':
+                    event.preventDefault();
+                    selectedSuggestionIndex = Math.max(selectedSuggestionIndex - 1, -1);
+                    updateSuggestionHighlight(suggestions);
+                    break;
+                    
+                case 'Enter':
+                    event.preventDefault();
+                    if (selectedSuggestionIndex >= 0) {
+                        suggestions[selectedSuggestionIndex].click();
+                    } else {
+                        // 직접 입력된 값으로 장르 추가
+                        const boothIndex = parseInt(input.dataset.boothIndex);
+                        addGenreFromInput(input, boothIndex);
+                    }
+                    break;
+                    
+                case 'Escape':
+                    closeAutocomplete();
+                    break;
+            }
+        }
+
+        // 제안 하이라이트 업데이트
+        function updateSuggestionHighlight(suggestions) {
+            suggestions.forEach((item, index) => {
+                item.classList.toggle('highlighted', index === selectedSuggestionIndex);
+            });
+        }
+
+        // 파일 불러오기
+        function loadFile() {
+            document.getElementById('fileInput').click();
+        }
+
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    
+                    // 기존 구조와 새 구조 모두 지원
+                    if (data.eventName && data.booths) {
+                        eventData = data;
+                    } else if (Array.isArray(data)) {
+                        eventData = {
+                            eventName: "새 행사",
+                            booths: data
+                        };
+                    } else {
+                        throw new Error("올바르지 않은 JSON 형식입니다.");
+                    }
+                    
+                    loadEventData();
+                    alert('파일이 성공적으로 로드되었습니다!');
+                } catch (error) {
+                    alert('파일 로드 중 오류가 발생했습니다: ' + error.message);
+                }
+            };
+            reader.readAsText(file);
+        });
+
+        // 이벤트 데이터를 UI에 로드
+        function loadEventData() {
+            document.getElementById('eventName').value = eventData.eventName || "";
+            
+            const boothList = document.getElementById('boothList');
+            boothList.innerHTML = '';
+            
+            eventData.booths.forEach((booth, index) => {
+                createBoothElement(booth, index);
+            });
+            
+            updatePreview();
+        }
+
+        // 부스 요소 생성
+        function createBoothElement(booth, index) {
+            const boothDiv = document.createElement('div');
+            boothDiv.className = 'booth-item';
+            boothDiv.innerHTML = `
+                <button class="remove-booth-btn" onclick="removeBooth(${index})">&times;</button>
+                <h4>부스 #${index + 1}</h4>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>부스 번호</label>
+                        <input type="text" class="form-control" value="${booth.boothNumber || ''}" 
+                               onchange="updateBooth(${index}, 'boothNumber', this.value)">
+                    </div>
+                    <div class="form-group">
+                        <label>부스명 (선택사항)</label>
+                        <input type="text" class="form-control" value="${booth.boothName || ''}" 
+                               onchange="updateBooth(${index}, 'boothName', this.value)">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>홍보 URL</label>
+                        <input type="url" class="form-control" value="${booth.promoUrl || ''}" 
+                               onchange="updateBooth(${index}, 'promoUrl', this.value)">
+                    </div>
+                    <div class="form-group">
+                        <label>주문 URL (선택사항)</label>
+                        <input type="url" class="form-control" value="${booth.orderUrl || ''}" 
+                               onchange="updateBooth(${index}, 'orderUrl', this.value)">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>이미지 URL</label>
+                    <input type="url" class="form-control" placeholder="이미지 URL을 입력하고 Enter를 누르세요" 
+                           onkeypress="addImage(event, ${index})">
+                    <div class="image-list" id="imageList${index}">
+                        ${(booth.images || []).map((img, imgIndex) => `
+                            <div class="image-item">
+                                ${img}
+                                <button class="remove-image-btn" onclick="removeImage(${index}, ${imgIndex})">&times;</button>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>장르</label>
+                    <div class="autocomplete-container">
+                        <input type="text" class="form-control" placeholder="장르를 입력하세요 (자동완성 지원)" 
+                               data-booth-index="${index}"
+                               oninput="handleGenreInput(event, ${index})"
+                               onkeydown="handleGenreKeydown(event, ${index})"
+                               onkeypress="handleGenreKeypress(event, ${index})">
+                    </div>
+                    <div class="genre-list" id="genreList${index}">
+                        ${(booth.genres || []).map((genre, genreIndex) => `
+                            <div class="genre-item">
+                                ${genre}
+                                <button class="remove-genre-btn" onclick="removeGenre(${index}, ${genreIndex})">&times;</button>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('boothList').appendChild(boothDiv);
+        }
+
+        // 장르 입력 처리
+        function handleGenreInput(event, boothIndex) {
+            const input = event.target;
+            const suggestions = filterGenres(input.value);
+            
+            if (suggestions.length > 0 && input.value.trim().length > 0) {
+                showAutocomplete(input, suggestions);
+            } else {
+                closeAutocomplete();
+            }
+        }
+
+        // 장르 키다운 처리
+        function handleGenreKeydown(event, boothIndex) {
+            handleAutocompleteKeydown(event, event.target);
+        }
+
+        // 장르 키프레스 처리 (Enter)
+        function handleGenreKeypress(event, boothIndex) {
+            if (event.key === 'Enter' && !currentAutocomplete) {
+                addGenreFromInput(event.target, boothIndex);
+            }
+        }
+
+        // 입력에서 장르 추가
+        function addGenreFromInput(input, boothIndex) {
+            const genre = input.value.trim();
+            if (genre) {
+                if (!eventData.booths[boothIndex].genres) {
+                    eventData.booths[boothIndex].genres = [];
+                }
+                
+                // 중복 체크
+                if (!eventData.booths[boothIndex].genres.includes(genre)) {
+                    eventData.booths[boothIndex].genres.push(genre);
+                    input.value = '';
+                    updateGenreList(boothIndex);
+                    updatePreview();
+                } else {
+                    alert('이미 추가된 장르입니다.');
+                }
+            }
+            closeAutocomplete();
+        }
+
+        // 새 부스 추가
+        function addBooth() {
+            const newBooth = {
+                boothNumber: "",
+                boothName: "",
+                promoUrl: "",
+                orderUrl: "",
+                images: [],
+                genres: []
+            };
+            
+            eventData.booths.push(newBooth);
+            createBoothElement(newBooth, eventData.booths.length - 1);
+            updatePreview();
+        }
+
+        // 부스 제거
+        function removeBooth(index) {
+            if (confirm('이 부스를 삭제하시겠습니까?')) {
+                eventData.booths.splice(index, 1);
+                loadEventData();
+            }
+        }
+
+        // 부스 정보 업데이트
+        function updateBooth(index, field, value) {
+            eventData.booths[index][field] = value;
+            updatePreview();
+        }
+
+        // 이미지 추가
+        function addImage(event, boothIndex) {
+            if (event.key === 'Enter') {
+                const url = event.target.value.trim();
+                if (url) {
+                    if (!eventData.booths[boothIndex].images) {
+                        eventData.booths[boothIndex].images = [];
+                    }
+                    eventData.booths[boothIndex].images.push(url);
+                    event.target.value = '';
+                    updateImageList(boothIndex);
+                    updatePreview();
+                }
+            }
+        }
+
+        // 이미지 제거
+        function removeImage(boothIndex, imageIndex) {
+            eventData.booths[boothIndex].images.splice(imageIndex, 1);
+            updateImageList(boothIndex);
+            updatePreview();
+        }
+
+        // 이미지 목록 업데이트
+        function updateImageList(boothIndex) {
+            const imageList = document.getElementById(`imageList${boothIndex}`);
+            const images = eventData.booths[boothIndex].images || [];
+            
+            imageList.innerHTML = images.map((img, imgIndex) => `
+                <div class="image-item">
+                    ${img}
+                    <button class="remove-image-btn" onclick="removeImage(${boothIndex}, ${imgIndex})">&times;</button>
+                </div>
+            `).join('');
+        }
+
+        // 장르 제거
+        function removeGenre(boothIndex, genreIndex) {
+            eventData.booths[boothIndex].genres.splice(genreIndex, 1);
+            updateGenreList(boothIndex);
+            updatePreview();
+        }
+
+        // 장르 목록 업데이트
+        function updateGenreList(boothIndex) {
+            const genreList = document.getElementById(`genreList${boothIndex}`);
+            const genres = eventData.booths[boothIndex].genres || [];
+            
+            genreList.innerHTML = genres.map((genre, genreIndex) => `
+                <div class="genre-item">
+                    ${genre}
+                    <button class="remove-genre-btn" onclick="removeGenre(${boothIndex}, ${genreIndex})">&times;</button>
+                </div>
+            `).join('');
+        }
+
+        // JSON 미리보기 업데이트
+        function updatePreview() {
+            const preview = document.getElementById('jsonPreview');
+            preview.textContent = JSON.stringify(eventData, null, 2);
+        }
+
+        // JSON 파일 다운로드
+        function downloadJSON() {
+            const dataStr = JSON.stringify(eventData, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(dataBlob);
+            link.download = `${eventData.eventName || 'event'}.json`;
+            link.click();
+        }
+    </script>
+</body>
+</html>

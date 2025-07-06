@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>부스 정보 사이트</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header" id="mainHeader">
+        <h1>부스 정보 사이트</h1>
+        <div class="controls">
+            <div class="control-group">
+                <span>행사 선택:</span>
+                <select id="eventSelector" class="event-selector">
+                    <option value="">행사를 선택하세요</option>
+                </select>
+            </div>
+            <div class="control-group genre-control">
+                <span>장르 선택:</span>
+                <div class="genre-selector" id="genreSelector"></div>
+            </div>
+            <div class="header-buttons">
+                <button class="header-btn help-btn" onclick="showHelp()">
+                    도움말
+                </button>
+                <button class="header-btn tutorial-btn" onclick="showTutorial()">
+                    튜토리얼
+                </button>
+            </div>
+        </div>
+        
+        <!-- 헤더 토글 바를 헤더 내부 하단에 배치 -->
+        <div class="header-toggle-bar" id="headerToggleBar" onclick="toggleHeader()">
+            <div class="toggle-bar-content">
+                <span class="toggle-bar-text">메뉴 숨기기</span>
+                <span class="toggle-bar-icon">▲</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- 도움말 탭 컨테이너 -->
+        <div class="help-container" id="helpContainer" style="display: none;">
+            <div class="help-tabs">
+                <button class="help-tab active" onclick="showHelpTab('about')">사이트 소개</button>
+                <button class="help-tab" onclick="showHelpTab('creator')">제작자 정보</button>
+                <button class="help-tab" onclick="showHelpTab('manage')">정보 관리</button>
+            </div>
+            <div class="help-content">
+                <div class="help-tab-content active" id="helpAbout">
+
+                    <div class="info-notice">
+                        <h4>📢 부스 정보 관련 문의는?</h4>
+                        <p><strong>부스 정보 추가, 수정, 삭제</strong>에 대해서는 <strong>'정보 관리'</strong> 탭에서 자세한 내용을 확인해주세요.</p>
+                    </div>
+                    <br>
+                    <h3>동인 행사 부스 정보 사이트</h3>
+                    <p>동인 행사의 부스 정보를 쉽게 찾아볼 수 있도록 도와드립니다! 사실 제가 부스 정보 모아서 북마크하는 사이트가 필요해서 잠깐 만들었어요.</p>
+                    
+                    
+                    
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <h4>🏷️ 장르별 필터링</h4>
+                            <p>원하는 장르의 부스만 골라서 볼 수 있습니다. 상단의 메뉴에서 원하는 장르를 선택해보세요.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>⭐ 북마크 기능</h4>
+                            <p>관심 있는 부스를 북마크하여 나중에 쉽게 찾을 수 있습니다. 각 부스 카드의 우측 상단 별표를 눌러보세요.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>🖼️ 인포 모음</h4>
+                            <p>부스의 홍보 포스터 및 이미지, 인포 등을 확대해서 자세히 볼 수 있습니다.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>🔗 하이퍼링크</h4>
+                            <p>홍보 트윗이나 선입금 주문 페이지로 바로 이동할 수 있습니다.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>🔒 개인정보 보호</h4>
+                            <p>사용자의 모든 활동(북마크, 설정 등)은 서버에 저장되지 않고, 사용자의 기기에서만 저장되어 안전하게 볼 수 있습니다.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="help-tab-content" id="helpCreator">
+                    <h3>안녕하세요 !</h3>
+                    <div class="creator-info">
+                        <h4>쏘가리 (SSoGari)</h4>
+                        <p><strong>Developer, Streamer, Technical Supporter</strong></p>
+                        <div class="contact-links">
+                            <p>- <strong>Twitter:</strong> <a href="https://twitter.com/ssogari_dev" target="_blank" rel="noopener noreferrer">@ssogari_dev</a></p>
+                            <p>- <strong>Email:</strong> <a href="mailto:admin@ssogari.dev">admin@ssogari.dev</a></p>
+                        </div>
+                            <p>사이트 디자인은 Claude 4.0 Sonnet 모델을 이용하여 AI의 도움을 받아 제작하였습니다.</p>
+                    </div>
+                    <div class="contact-info">
+                        <h4>📞 문의 및 피드백</h4>
+                        <p>사이트 이용 중 문제가 있거나 개선 사항이 있으시면 언제든지 위의 연락처로 문의해 주세요.</p>
+                        <p>여러분의 소중한 의견이 더 나은 서비스를 만드는 데 큰 도움이 됩니다.</p>
+                    </div>
+                </div>
+                
+                <div class="help-tab-content" id="helpManage">
+                    <h3>📝 정보 관리 안내</h3>
+                    
+                    <div class="manage-section">
+                        <h4>📁 부스 정보 추가</h4>
+                        <p>현재 1인 개발자가 직접 부스 정보를 찾으며 수동으로 추가하고 있습니다. 이로 인해 부스 정보가 누락되거나 늦게 추가될 수 있습니다.</p>
+                        <p><strong>'제작자 정보'</strong>의 연락처로 추가 요청을 남겨주시면, 해당 건에 대해 우선적으로 빠르게 반영하도록 하겠습니다.</p>
+                    </div>
+                    
+                    <div class="manage-section">
+                        <h4>✏️ 부스 정보 수정</h4>
+                        <p>등록된 부스 정보에 오류나 변경사항이 있나요?</p>
+                        <p><strong>'제작자 정보'</strong>의 연락처로 수정 요청을 남겨주시면, 확인 후 신속하게 수정하겠습니다.</p>
+                    </div>
+                    
+                    <div class="manage-section">
+                        <h4>🗑️ 부스 정보 삭제</h4>
+                        <p>본 사이트는 <strong>부스의 이미지를 별도의 데이터베이스나 서버에 저장하지 않습니다</strong>. 게시하신 트윗이나 부스 홍보 게시물의 이미지 URL을 참조하여 보여드리고 있습니다. 아래는 실제로 저장된 데이터 구조 예시입니다:</p>
+                        
+                        <pre><code>{
+  "eventName": "쏘가리페스 SUMMER",
+  "booths": [
+    {
+      "boothNumber": "A-08",
+      "boothName": "쏘가리네 생선 가게",
+      "promoUrl": "https://x.com/ssogari_dev/status/1935352923317535017",
+      "orderUrl": "",
+      "images": ["https://pbs.twimg.com/media/GtvBOkNaQAEDTKJ?format=jpg"], // 트위터 서버 이미지 URL
+      "genres": ["붕괴: 스타레일", "호요버스"]
+    }
+  ]
+}</code></pre>
+                        
+                        <p>위와 같이 공개된 게시물의 이미지 URL를 참조하는 방식으로, 이미지를 따로 저장하거나 보관하고 있지 않지만, 이 또한 원치 않으실 경우 삭제를 도와드립니다.</p>
+                        <p>삭제를 원하시는 경우 <strong>'제작자 정보'</strong>의 연락처로 문의해주시면, 해당 정보를 사이트에서 즉시 삭제하고 향후 수집 대상에서도 제외하도록 하겠습니다.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="booth-grid" id="boothGrid">
+            <div class="loading-message">행사 정보를 불러오는 중...</div>
+        </div>
+    </div>
+
+    <!-- 플로팅 버튼 -->
+    <div class="floating-buttons">
+        <button class="floating-btn main-btn" onclick="toggleSidebar()" title="설정 및 북마크">
+            <span class="icon">⚙️</span>
+            <span class="bookmark-count" id="bookmarkCount">0</span>
+        </button>
+    </div>
+
+    <!-- 통합 사이드바 -->
+    <div class="sidebar" id="mainSidebar">
+        <div class="sidebar-header">
+            <h3>설정 및 북마크</h3>
+            <button class="close-sidebar-btn" onclick="toggleSidebar()">×</button>
+        </div>
+        
+        <div class="sidebar-content">
+            <!-- 설정 섹션 -->
+            <div class="sidebar-section">
+                <div class="section-header collapsible" onclick="toggleSection('settings')">
+                    <h4 class="section-title">설정</h4>
+                    <span class="section-arrow" id="settingsArrow">▼</span>
+                </div>
+                
+                <div class="section-content" id="settingsContent">
+                    <div class="setting-item">
+                        <label class="setting-label">
+                            <span>부스 이미지 묶어서 표시</span>
+                            <div class="toggle-switch active" id="groupImagesToggle"></div>
+                        </label>
+                        <p class="setting-description">여러 이미지를 슬라이드로 표시하거나 세로로 나열합니다.</p>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label class="setting-label">
+                            <span>북마크 이미지로 보기</span>
+                            <div class="toggle-switch active" id="bookmarkImagesToggle"></div>
+                        </label>
+                        <p class="setting-description">북마크에서 이미지를 함께 표시합니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 북마크 섹션 -->
+            <div class="sidebar-section">
+                <div class="section-header collapsible" onclick="toggleSection('bookmark')">
+                    <h4 class="section-title">북마크</h4>
+                    <div class="section-header-right">
+                        <button class="clear-all-btn" onclick="clearAllBookmarks()" title="전체 삭제">
+                            <span>전체 삭제</span>
+                        </button>
+                        <span class="section-arrow" id="bookmarkArrow">▼</span>
+                    </div>
+                </div>
+                
+                <div class="section-content" id="bookmarkContent">
+                    <div class="bookmark-list" id="bookmarkList"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 사이드바 오버레이 -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+    <!-- 이미지 확대 모달 -->
+    <div class="image-modal-overlay" id="imageModal" style="display: none;">
+        <div class="image-modal-content">
+            <div class="image-modal-header">
+                <span class="image-modal-title" id="imageModalTitle">이미지 보기</span>
+                <button class="close-btn" onclick="closeImageModal()">×</button>
+            </div>
+            <div class="image-modal-body">
+                <div class="image-viewer-container">
+                    <div class="image-viewer" id="imageViewer">
+                        <img id="modalImage" src="" alt="확대 이미지">
+                    </div>
+                    <button class="modal-arrow prev" id="modalPrevBtn" onclick="changeModalSlide(-1)">‹</button>
+                    <button class="modal-arrow next" id="modalNextBtn" onclick="changeModalSlide(1)">›</button>
+                </div>
+                <div class="image-controls">
+                    <button class="zoom-btn" onclick="zoomImage(-0.2)">-</button>
+                    <span class="zoom-level" id="zoomLevel">100%</span>
+                    <button class="zoom-btn" onclick="zoomImage(0.2)">+</button>
+                    <button class="reset-btn" onclick="resetZoom()">원본 크기</button>
+                </div>
+                <div class="modal-slider-controls" id="modalSliderControls"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 튜토리얼 모달 -->
+    <div class="modal-overlay" id="tutorialModal" style="display: none;"></div>
+
+    <!-- 스크립트 파일들 -->
+    <script src="js/config.js"></script>
+    <script src="js/tutorial.js"></script>
+    <script src="js/help.js"></script>
+    <script src="js/imageModal.js"></script>
+    <script src="js/booth.js"></script>
+    <script src="js/bookmark.js"></script>
+    <script src="js/sidebar.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/headerHeight.js"></script>
+</body>
+</html>
