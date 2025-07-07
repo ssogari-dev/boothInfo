@@ -25,6 +25,7 @@
             padding: 20px;
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
+            position: relative;
         }
 
         .header h1 {
@@ -69,6 +70,16 @@
 
         .btn-danger {
             background: #f56565;
+            color: white;
+        }
+
+        .btn-info {
+            background: #38b2ac;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #718096;
             color: white;
         }
 
@@ -304,15 +315,12 @@
             position: relative;
         }
 
-        .hidden {
-            display: none;
-        }
-
         .sort-controls {
             display: flex;
             gap: 10px;
             margin-bottom: 15px;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .sort-btn {
@@ -337,35 +345,113 @@
             font-style: italic;
         }
 
-        .floating-add-btn {
+        /* 플로팅 버튼들 */
+        .floating-buttons {
             position: fixed;
             bottom: 30px;
             right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .floating-add-btn, .floating-save-btn {
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            background: #48bb78;
-            color: white;
             border: none;
             cursor: pointer;
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: bold;
-            box-shadow: 0 4px 20px rgba(72, 187, 120, 0.4);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
-            z-index: 1000;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .floating-add-btn:hover {
-            background: #38a169;
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 8px 25px rgba(56, 161, 105, 0.6);
+        .floating-add-btn {
+            background: #48bb78;
+            color: white;
         }
 
-        .floating-add-btn:active {
+        .floating-save-btn {
+            background: #4299e1;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .floating-save-btn.has-changes {
+            background: #ed8936;
+            animation: pulse 2s infinite;
+        }
+
+        .floating-add-btn:hover, .floating-save-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .floating-add-btn:active, .floating-save-btn:active {
             transform: translateY(-1px) scale(1.02);
+        }
+
+        /* 펄스 애니메이션 */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 4px 20px rgba(237, 137, 54, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 20px rgba(237, 137, 54, 0.8);
+            }
+            100% {
+                box-shadow: 0 4px 20px rgba(237, 137, 54, 0.4);
+            }
+        }
+
+        /* 저장 상태 표시 */
+        .save-status {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .save-status.saved {
+            background: #c6f6d5;
+            color: #22543d;
+            border: 1px solid #9ae6b4;
+        }
+
+        .save-status.unsaved {
+            background: #fed7d7;
+            color: #742a2a;
+            border: 1px solid #fc8181;
+        }
+
+        /* 저장 알림 */
+        .save-notification {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            background: #48bb78;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            z-index: 1001;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .save-notification.show {
+            transform: translateX(0);
         }
 
         /* 기존 헤더의 새 부스 추가 버튼과 구분하기 위해 스타일 조정 */
@@ -377,12 +463,15 @@
 <body>
     <div class="header">
         <h1>부스 정보 에디터</h1>
+        <div id="saveStatus" class="save-status saved">모든 변경사항이 저장됨</div>
         <div class="header-controls">
             <input type="file" id="fileInput" accept=".json" class="hidden">
             <button class="btn btn-primary" onclick="loadFile()">JSON 파일 불러오기</button>
             <button class="btn btn-success" onclick="downloadJSON()">JSON 파일 내보내기</button>
             <button class="btn btn-warning" onclick="addBooth()">새 부스 추가</button>
-            <a href="/" class="btn btn-danger">메인 사이트로 돌아가기</a>
+            <button class="btn btn-info" onclick="loadFromLocalStorage()">임시 저장 복원</button>
+            <button class="btn btn-secondary" onclick="clearAutoSave()">임시 저장 삭제</button>
+            <a href="index.html" class="btn btn-danger">메인 사이트로 돌아가기</a>
         </div>
     </div>
 
@@ -401,6 +490,7 @@
             <h2 class="section-title">부스 목록</h2>
             <div class="sort-controls">
                 <button class="sort-btn" onclick="sortBooths()">부스 번호 순으로 정렬</button>
+                <button class="sort-btn" onclick="convertBoothNumbersToUpperCase()">부스 번호 대문자 변환</button>
                 <span class="sort-info">정렬 순서: A~Z → AA~ZZ → 알파벳-번호 순</span>
             </div>
             <div id="boothList" class="booth-list">
@@ -415,15 +505,24 @@
         </div>
     </div>
 
-    <button class="floating-add-btn" onclick="addBoothAndScroll()" title="새 부스 추가">
-        +
-    </button>
+    <div class="floating-buttons">
+        <button class="floating-add-btn" onclick="addBoothAndScroll()" title="새 부스 추가">
+            +
+        </button>
+        <button class="floating-save-btn" onclick="manualSave()" title="수동 저장">
+            💾
+        </button>
+    </div>
 
     <script>
         let eventData = {
             eventName: "",
             booths: []
         };
+
+        // 변경사항 추적 변수
+        let hasUnsavedChanges = false;
+        let lastSavedData = '';
 
         // 미리 정의된 장르 목록
         const predefinedGenres = [
@@ -432,7 +531,7 @@
             '프로젝트 세카이', '오리지널 캐릭터', '앙상블 스타즈', '러브 라이브', '아이돌 마스터', '블루 아카이브',
             '승리의 여신: 니케', '홀로라이브', '니지산지', '버츄얼', '스텔라이브', '이터널 리턴', '뱅드림', '동방 프로젝트',
             'GL (백합)', '기업부스', '아카데미존', '팬사인존', '봇치 더 록', '걸즈 밴드 크라이', '스파이 패밀리', '장송의 프리렌',
-            '림버스 컴퍼니', 'AI 사용'
+            '림버스 컴퍼니', 'AI 사용', '브라운 더스트', 'BL', 
         ];
 
         // 현재 활성화된 자동완성
@@ -486,20 +585,209 @@
             }
         }
 
+        // 부스 번호 대문자 변환 함수
+        function convertBoothNumbersToUpperCase() {
+            if (eventData.booths.length === 0) {
+                alert('변환할 부스가 없습니다.');
+                return;
+            }
+
+            // 변환 전 확인
+            if (!confirm('모든 부스 번호를 대문자로 변환하시겠습니까?')) {
+                return;
+            }
+
+            let convertedCount = 0;
+            let changedBooths = [];
+
+            // 모든 부스의 부스 번호를 대문자로 변환
+            eventData.booths.forEach((booth, index) => {
+                if (booth.boothNumber) {
+                    const originalNumber = booth.boothNumber;
+                    const upperCaseNumber = originalNumber.toUpperCase();
+                    
+                    if (originalNumber !== upperCaseNumber) {
+                        booth.boothNumber = upperCaseNumber;
+                        changedBooths.push(`${originalNumber} → ${upperCaseNumber}`);
+                        convertedCount++;
+                    }
+                }
+            });
+
+            // UI 업데이트
+            if (convertedCount > 0) {
+                loadEventData(); // 전체 UI 다시 로드
+                
+                // 변환 결과 알림
+                const message = `${convertedCount}개의 부스 번호가 대문자로 변환되었습니다.`;
+                alert(message);
+                
+                // 자동 저장
+                saveToLocalStorage();
+                checkForChanges();
+            } else {
+                alert('변환할 부스 번호가 없습니다.');
+            }
+        }
+
+        // 변경사항 감지 함수
+        function checkForChanges() {
+            const currentData = JSON.stringify(eventData);
+            hasUnsavedChanges = (currentData !== lastSavedData);
+            
+            // 상태 표시 업데이트
+            updateSaveStatus();
+        }
+
+        // 저장 상태 표시 업데이트
+        function updateSaveStatus() {
+            const statusElement = document.getElementById('saveStatus');
+            if (statusElement) {
+                if (hasUnsavedChanges) {
+                    statusElement.textContent = '변경사항이 있습니다';
+                    statusElement.className = 'save-status unsaved';
+                } else {
+                    statusElement.textContent = '모든 변경사항이 저장됨';
+                    statusElement.className = 'save-status saved';
+                }
+            }
+            updateManualSaveButton();
+        }
+
+        // 자동 저장 관련 함수들
+        function saveToLocalStorage() {
+            try {
+                const timestamp = new Date().toISOString();
+                const backupData = {
+                    ...eventData,
+                    lastSaved: timestamp
+                };
+                localStorage.setItem('eventDataBackup', JSON.stringify(backupData));
+                console.log('자동 저장 완료:', new Date(timestamp).toLocaleString());
+            } catch (e) {
+                console.error('자동 저장 실패:', e);
+                alert('저장 공간이 부족합니다. 브라우저 캐시를 정리해주세요.');
+            }
+        }
+
+        function loadFromLocalStorage() {
+            try {
+                const savedData = localStorage.getItem('eventDataBackup');
+                if (savedData) {
+                    const parsedData = JSON.parse(savedData);
+                    if (parsedData && parsedData.booths && parsedData.lastSaved) {
+                        const lastSavedTime = new Date(parsedData.lastSaved).toLocaleString();
+                        
+                        if (confirm(`임시 저장된 데이터가 있습니다.\n마지막 저장: ${lastSavedTime}\n\n복원하시겠습니까?`)) {
+                            // 타임스탬프 제거 후 데이터 복원
+                            const { lastSaved, ...cleanData } = parsedData;
+                            eventData = cleanData;
+                            loadEventData();
+                            lastSavedData = JSON.stringify(eventData);
+                            hasUnsavedChanges = false;
+                            alert('임시 저장 데이터가 복원되었습니다.');
+                        } else {
+                            // 복원하지 않을 경우 현재 데이터로 초기화
+                            lastSavedData = JSON.stringify(eventData);
+                            hasUnsavedChanges = false;
+                        }
+                    }
+                }
+            } catch (e) {
+                console.error('임시 저장 데이터 복구 실패:', e);
+            }
+        }
+
+        // 수동 저장 함수
+        function manualSave() {
+            saveToLocalStorage();
+            lastSavedData = JSON.stringify(eventData);
+            hasUnsavedChanges = false;
+            
+            // 성공 알림
+            showSaveNotification('수동 저장 완료!');
+        }
+
+        // 저장 알림 표시
+        function showSaveNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'save-notification';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 100);
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    if (document.body.contains(notification)) {
+                        document.body.removeChild(notification);
+                    }
+                }, 300);
+            }, 2000);
+        }
+
+        // 주기적 자동 저장 (30초마다)
+        setInterval(() => {
+            if (hasUnsavedChanges) {
+                saveToLocalStorage();
+            }
+        }, 30000);
+
+        // 임시 저장 데이터 삭제 함수
+        function clearAutoSave() {
+            if (confirm('임시 저장 데이터를 삭제하시겠습니까?')) {
+                localStorage.removeItem('eventDataBackup');
+                showSaveNotification('임시 저장 데이터가 삭제되었습니다.');
+            }
+        }
+
+        // 수동 저장 버튼 상태 업데이트
+        function updateManualSaveButton() {
+            const saveBtn = document.querySelector('.floating-save-btn');
+            if (saveBtn) {
+                if (hasUnsavedChanges) {
+                    saveBtn.classList.add('has-changes');
+                    saveBtn.title = '변경사항을 수동 저장';
+                } else {
+                    saveBtn.classList.remove('has-changes');
+                    saveBtn.title = '수동 저장 (변경사항 없음)';
+                }
+            }
+        }
+
         // 페이지 로드 시 초기화
         document.addEventListener('DOMContentLoaded', function() {
             updatePreview();
+            lastSavedData = JSON.stringify(eventData);
+            
+            // 페이지 로드 시 임시 저장 데이터 확인
+            loadFromLocalStorage();
             
             // 이벤트 리스너 추가
             document.getElementById('eventName').addEventListener('input', function() {
                 eventData.eventName = this.value;
                 updatePreview();
+                saveToLocalStorage(); // 자동 저장
+                checkForChanges(); // 변경사항 체크
             });
 
             // 문서 클릭 시 자동완성 닫기
             document.addEventListener('click', function(e) {
                 if (!e.target.closest('.autocomplete-container')) {
                     closeAutocomplete();
+                }
+            });
+
+            // 창 닫기 전 확인 프롬프트
+            window.addEventListener('beforeunload', function(e) {
+                if (hasUnsavedChanges) {
+                    const confirmationMessage = '변경사항이 저장되지 않았습니다. 정말 창을 닫으시겠습니까?';
+                    e.preventDefault();
+                    e.returnValue = confirmationMessage;
+                    return confirmationMessage;
                 }
             });
         });
@@ -669,6 +957,8 @@
                     }
                     
                     loadEventData();
+                    lastSavedData = JSON.stringify(eventData);
+                    hasUnsavedChanges = false;
                     alert('파일이 성공적으로 로드되었습니다!');
                 } catch (error) {
                     alert('파일 로드 중 오류가 발생했습니다: ' + error.message);
@@ -703,7 +993,8 @@
                     <div class="form-group">
                         <label>부스 번호</label>
                         <input type="text" class="form-control" value="${booth.boothNumber || ''}" 
-                               onchange="updateBooth(${index}, 'boothNumber', this.value)">
+                               onchange="updateBooth(${index}, 'boothNumber', this.value)"
+                               placeholder="예: A-01, B-15">
                     </div>
                     <div class="form-group">
                         <label>부스명 (선택사항)</label>
@@ -800,6 +1091,8 @@
                     input.value = '';
                     updateGenreList(boothIndex);
                     updatePreview();
+                    saveToLocalStorage(); // 자동 저장
+                    checkForChanges(); // 변경사항 체크
                 } else {
                     alert('이미 추가된 장르입니다.');
                 }
@@ -821,6 +1114,8 @@
             eventData.booths.push(newBooth);
             createBoothElement(newBooth, eventData.booths.length - 1);
             updatePreview();
+            saveToLocalStorage(); // 자동 저장
+            checkForChanges(); // 변경사항 체크
         }
 
         // 부스 제거
@@ -828,6 +1123,8 @@
             if (confirm('이 부스를 삭제하시겠습니까?')) {
                 eventData.booths.splice(index, 1);
                 loadEventData();
+                saveToLocalStorage(); // 자동 저장
+                checkForChanges(); // 변경사항 체크
             }
         }
 
@@ -835,6 +1132,8 @@
         function updateBooth(index, field, value) {
             eventData.booths[index][field] = value;
             updatePreview();
+            saveToLocalStorage(); // 자동 저장
+            checkForChanges(); // 변경사항 체크
         }
 
         // 이미지 추가
@@ -849,6 +1148,8 @@
                     event.target.value = '';
                     updateImageList(boothIndex);
                     updatePreview();
+                    saveToLocalStorage(); // 자동 저장
+                    checkForChanges(); // 변경사항 체크
                 }
             }
         }
@@ -858,6 +1159,8 @@
             eventData.booths[boothIndex].images.splice(imageIndex, 1);
             updateImageList(boothIndex);
             updatePreview();
+            saveToLocalStorage(); // 자동 저장
+            checkForChanges(); // 변경사항 체크
         }
 
         // 이미지 목록 업데이트
@@ -878,6 +1181,8 @@
             eventData.booths[boothIndex].genres.splice(genreIndex, 1);
             updateGenreList(boothIndex);
             updatePreview();
+            saveToLocalStorage(); // 자동 저장
+            checkForChanges(); // 변경사항 체크
         }
 
         // 장르 목록 업데이트
@@ -908,6 +1213,11 @@
             link.href = URL.createObjectURL(dataBlob);
             link.download = `${eventData.eventName || 'event'}.json`;
             link.click();
+            
+            // 저장 완료 후 변경사항 플래그 리셋
+            lastSavedData = JSON.stringify(eventData);
+            hasUnsavedChanges = false;
+            showSaveNotification('JSON 파일이 다운로드되었습니다.');
         }
     </script>
 </body>
