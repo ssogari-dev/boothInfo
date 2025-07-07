@@ -193,6 +193,65 @@ body {
     background: #5a67d8;
 }
 
+/* 장르 태그 개수 표시 스타일 */
+.genre-count {
+    font-size: 0.8em;
+    opacity: 0.8;
+    font-weight: normal;
+}
+
+/* 더 보기 버튼 스타일 */
+.genre-show-more {
+    background: #f8f9fa;
+    color: #6b7280;
+    padding: 5px 12px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px dashed #d1d5db;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.genre-show-more:hover {
+    background: #e5e7eb;
+    border-color: #9ca3af;
+}
+
+.genre-show-more.expanded {
+    background: #fef3c7;
+    color: #92400e;
+    border-color: #f59e0b;
+}
+
+.genre-show-more.expanded:hover {
+    background: #fde68a;
+}
+
+/* 기타 장르 태그 스타일 */
+.genre-tag.minor {
+    background: #f3f4f6;
+    color: #6b7280;
+    border: 1px solid #e5e7eb;
+}
+
+.genre-tag.minor:hover {
+    background: #e5e7eb;
+    color: #4b5563;
+}
+
+.genre-tag.minor.active {
+    background: #9ca3af;
+    color: white;
+    border-color: #6b7280;
+}
+
+.genre-tag.minor.active:hover {
+    background: #6b7280;
+}
+
 /* 헤더 버튼 스타일 */
 .header-buttons {
     display: flex;
@@ -2277,6 +2336,76 @@ button:focus,
 
 .bookmark-list {
     min-height: 100px;
+}
+
+/* 지연 로딩 이미지 스타일 */
+.lazy-image {
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.lazy-image.loading {
+    opacity: 0.5;
+    background: #f8f9fa;
+}
+
+.lazy-image.loaded {
+    opacity: 1;
+}
+
+.lazy-image.error {
+    opacity: 0.6;
+    filter: grayscale(100%);
+}
+
+/* 로딩 애니메이션 */
+.lazy-image.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #e5e7eb;
+    border-top: 2px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 이미지 없음 스타일 */
+.no-image {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    color: #6b7280;
+    font-style: italic;
+}
+
+.slider-image.loading {
+    opacity: 0.7;
+    position: relative;
+}
+
+.slider-image.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #e5e7eb;
+    border-top: 2px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
 }
 
 /* 색상 대비 개선 */
