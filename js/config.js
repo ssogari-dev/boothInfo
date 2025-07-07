@@ -4,7 +4,13 @@ const CONFIG = {
     ZOOM_MAX: 5,
     ZOOM_STEP: 0.2,
     TUTORIAL_STORAGE_KEY: 'tutorialShown',
-    BOOKMARK_STORAGE_KEY: 'bookmarks'
+    BOOKMARK_STORAGE_KEY: 'bookmarks',
+    LOADING_STRATEGY: {
+        PRELOAD_ON_VIEWPORT: 1, // 두 번째 이미지만
+        PRELOAD_ADJACENT: true,
+        // 인접 이미지 로드 지연 시간 (ms)
+        ADJACENT_DELAY: 200,
+    }
 };
 
 // 전역 상태 변수

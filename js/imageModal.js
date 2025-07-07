@@ -102,21 +102,22 @@ function updateModalSlide() {
     const modalImage = document.getElementById('modalImage');
     const modalTitle = document.getElementById('imageModalTitle');
     const dots = document.querySelectorAll('#modalSliderControls .slider-dot');
-    
+
+    // 모달에서는 즉시 로드 (사용자가 이미 보려고 클릭한 상태)
     modalImage.src = currentModalImages[currentModalIndex];
-    
+
     // 제목에서 이미지 번호만 업데이트
     const subtitle = modalTitle.querySelector('.image-modal-subtitle');
     if (subtitle) {
         subtitle.textContent = `이미지 ${currentModalIndex + 1}/${currentModalImages.length}`;
     }
-    
+
     // 줌과 위치 초기화
     currentZoom = 1;
     imagePosition = { x: 0, y: 0 };
     updateZoomDisplay();
     updateImageTransform();
-    
+
     dots.forEach((dot, index) => {
         dot.classList.toggle('active', index === currentModalIndex);
     });
