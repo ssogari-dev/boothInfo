@@ -2,8 +2,111 @@
   "eventName": "코믹월드 2025 SUMMER",
   "booths": [
     {
+      "boothNumber": "BI_18",
+      "boothName": "7번 단서 받으실 분",
+      "promoUrl": "https://x.com/Bimo_Koa/status/1933762958523576492",
+      "orderUrl": "https://witchform.com/payform/?uuid=VLS5ZXNEWF",
+      "images": [
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/24/20250624064619_043n58cxfo.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/24/20250624064626_2wpmcuqad9.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/24/20250624064636_l6frt58wqs.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/07/04/20250704054025_rat2153h4d.jpg"
+      ],
+      "genres": [
+        "명일방주"
+      ]
+    },
+    {
+      "boothNumber": "CF_17",
+      "boothName": "외계인만 취급함",
+      "promoUrl": "https://comicw.co.kr/participant/9557",
+      "orderUrl": "https://witchform.com/deposit_form.php?idx=850020",
+      "images": [
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/19/20250619083903_6e2tx5l1sg.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/18/20250618114524_j6hex75tng.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/18/20250618114527_q0knbo7jfu.jpg"
+      ],
+      "genres": [
+        "호요버스",
+        "붕괴: 스타레일",
+        "버츄얼",
+        "플레이브"
+      ]
+    },
+    {
+      "boothNumber": "CF_30",
+      "boothName": "찹쌀몽사세요",
+      "promoUrl": "https://bsky.app/profile/chapssal-mong.bsky.social/post/3lrdfncaq3s2r",
+      "orderUrl": "",
+      "images": [
+        "https://comicw.co.kr/data/editor/2506/thumb-b9fca1a17fa5e68668db886a09e5e51f_1750753728_9821_835x1856.png",
+        "https://comicw.co.kr/data/editor/2506/thumb-b9fca1a17fa5e68668db886a09e5e51f_1750753729_1366_835x1856.png",
+        "https://comicw.co.kr/data/editor/2506/thumb-b9fca1a17fa5e68668db886a09e5e51f_1750753729_2345_835x1856.png"
+      ],
+      "genres": [
+        "버츄얼",
+        "스텔라이브",
+        "호요버스",
+        "젠레스 존 제로",
+        "오리지널 캐릭터"
+      ]
+    },
+    {
+      "boothNumber": "CF_54",
+      "boothName": "크레파르",
+      "promoUrl": "https://x.com/imp_0330/status/1934899360279785971",
+      "orderUrl": "https://takemm.com/prod/view/47261",
+      "images": [
+        "https://comicw.co.kr/data/editor/2506/thumb-971fcf5f946e2eaf8a18c68043ece33e_1750085060_2913_835x830.jpg",
+        "https://image.takemm.com/20250616_221619_543bad0b_55579c86-b7c6-4853-84b2-e312e0c23f35.jpg",
+        "https://image.takemm.com/20250616_221643_278d54ee_6988b5b2-f54f-40ab-887a-25fee4a65a25.jpg",
+        "https://image.takemm.com/20250616_221653_a07cf394_0c1c708d-b67c-40fe-b0f5-11fdc13d6017.jpg",
+        "https://image.takemm.com/20250616_221920_d2e61b46_95650949-b3af-4983-befd-835fd7897198.jpg",
+        "https://image.takemm.com/20250616_221949_d01b5c2d_be4b35f6-5def-4223-940d-bea0ad8cb937.jpg",
+        "https://image.takemm.com/20250616_222035_be0fc951_5b6eb0b3-3494-45da-9ad3-d2cba689be76.jpg",
+        "https://image.takemm.com/20250616_222057_5ab4a063_444c1406-b2b2-4174-8a00-b95aab4b8b81.jpg",
+        "https://image.takemm.com/20250616_222109_25cbd7c3_0f11e98b-984b-4c71-b0eb-51fc47dc1fe8.jpg",
+        "https://image.takemm.com/20250616_222114_4ebb3143_26d8cb61-b768-4545-a5e5-f65395063f7b.jpg",
+        "https://image.takemm.com/20250616_222136_7f146d43_3600f200-d439-4887-88d0-dd421acee5b2.jpg",
+        "https://image.takemm.com/20250616_222141_0c0b6532_02127a0c-6240-43ad-b9d2-38fdb4ef4f77.jpg",
+        "https://image.takemm.com/20250616_222200_be415b26_530244e1-89f7-45c8-bfae-76ebfabd9dfe.jpg",
+        "https://image.takemm.com/20250616_222208_faf32601_44336538-a7d1-4947-947a-f249aac96b92.jpg",
+        "https://image.takemm.com/20250616_222222_65361628_1a74efa0-c829-4e19-8dc8-e2d91fb25a28.jpg",
+        "https://image.takemm.com/20250616_225617_a4dd631f_c6640299-f9a5-491f-bdbc-24a3351ccca0.jpg"
+      ],
+      "genres": [
+        "체인소맨",
+        "도쿄 리벤저스",
+        "주술회전",
+        "블루 록",
+        "윈드 브레이커",
+        "사카모토 데이즈",
+        "괴수 8호"
+      ]
+    },
+    {
+      "boothNumber": "CG_28",
+      "boothName": "홀로점프",
+      "promoUrl": "https://x.com/Mi_Ke0224/status/1934560008345403699",
+      "orderUrl": "https://witchform.com/payform/7MMY2L0NDK",
+      "images": [
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/16/20250616064158_4o65bgsvrq.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/21/20250621043018_7ot20fbdqh.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/26/20250626045555_n1utcw4l30.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/21/20250621022143_grautdf2hx.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/21/20250621022201_b9n0ok1tag.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/21/20250621042840_7jxqtkpl2d.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/21/20250621042943_vtec2frq63.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/21/20250621042846_1nbi9ust2g.jpg"
+      ],
+      "genres": [
+        "버츄얼",
+        "홀로라이브"
+      ]
+    },
+    {
       "boothNumber": "CG_36",
-      "boothName": "제비꽃말이덮",
+      "boothName": "제비꽃말이덮밥",
       "promoUrl": "https://x.com/eunmyeong99/status/1933777582828499449",
       "orderUrl": "https://witchform.com/deposit_form.php?idx=846766",
       "images": [
@@ -44,6 +147,236 @@
         "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/11/20250611035321_6w1srxnqvl.png",
         "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/11/20250611035321_dw3lnsxuj1.png",
         "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/11/20250611035321_quf6agd1rn.png"
+      ],
+      "genres": [
+        "버츄얼",
+        "스텔라이브"
+      ]
+    },
+    {
+      "boothNumber": "CI_49",
+      "boothName": "니케 정실",
+      "promoUrl": "https://comicw.co.kr/participant/9547",
+      "orderUrl": "https://witchform.com/payform/VQEZEEMASJ",
+      "images": [
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/16/20250616033035_gb8ci9wplt.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/16/20250616033035_1twj9k4deg.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/16/20250616033035_8j6g1asdtb.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/16/20250616033035_kl8xh5vcus.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/16/20250616033035_q71wv9fjph.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/16/20250616033035_auonrtwhji.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/16/20250616033035_wp3lbsi1ef.jpg"
+      ],
+      "genres": [
+        "승리의 여신: 니케"
+      ]
+    },
+    {
+      "boothNumber": "CO_33",
+      "boothName": "부스명 뭐하지",
+      "promoUrl": "https://x.com/cy6I9esthCizJh1/status/1934674449951019095",
+      "orderUrl": "https://comicw.co.kr/participant/9546",
+      "images": [
+        "https://comicw.co.kr/data/editor/2506/thumb-40b9f64daf6c57eee62612204ef4903c_1750132977_6879_835x589.png",
+        "https://comicw.co.kr/data/editor/2506/40b9f64daf6c57eee62612204ef4903c_1750132977_8314.png",
+        "https://comicw.co.kr/data/editor/2506/40b9f64daf6c57eee62612204ef4903c_1750132977_9361.jpeg",
+        "https://comicw.co.kr/data/editor/2506/40b9f64daf6c57eee62612204ef4903c_1750132977_999.png",
+        "https://comicw.co.kr/data/editor/2506/40b9f64daf6c57eee62612204ef4903c_1750132978_0653.png",
+        "https://comicw.co.kr/data/editor/2506/40b9f64daf6c57eee62612204ef4903c_1750132978_1513.png",
+        "https://comicw.co.kr/data/editor/2506/40b9f64daf6c57eee62612204ef4903c_1750132978_2101.png",
+        "https://comicw.co.kr/data/editor/2506/40b9f64daf6c57eee62612204ef4903c_1750132978_2664.png",
+        "https://comicw.co.kr/data/editor/2506/40b9f64daf6c57eee62612204ef4903c_1750132978_3271.png"
+      ],
+      "genres": [
+        "호요버스",
+        "원신",
+        "붕괴: 스타레일",
+        "발로란트"
+      ]
+    },
+    {
+      "boothNumber": "CO_51",
+      "boothName": "드림 저니의 물은 답을 알고 있다",
+      "promoUrl": "https://x.com/_pikiju/status/1937408106662887743",
+      "orderUrl": "https://witchform.com/deposit_form.php?idx=852819",
+      "images": [
+        "https://pbs.twimg.com/media/GuMMsZqasAE7itS?format=jpg",
+        "https://pbs.twimg.com/media/GuMMv42bkAA8TCT?format=jpg",
+        "https://pbs.twimg.com/media/GuMMxzIagAIEItd?format=png"
+      ],
+      "genres": [
+        "우마무스메"
+      ]
+    },
+    {
+      "boothNumber": "CO_59",
+      "boothName": "휘낭시에",
+      "promoUrl": "https://x.com/Leahy1230/status/1936755734324363556",
+      "orderUrl": "https://witchform.com/deposit_form.php?idx=851857",
+      "images": [
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/21/20250621113221_xk20s19omu.jpeg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/21/20250621113221_mbdkaxuois.jpeg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/21/20250621113221_9d785kt0pm.jpeg"
+      ],
+      "genres": [
+        "프로젝트 세카이"
+      ]
+    },
+    {
+      "boothNumber": "CP_18",
+      "boothName": "GG 임팩트!!",
+      "promoUrl": "https://x.com/aspark2002/status/1935722374273642762",
+      "orderUrl": "https://witchform.com/payform/?uuid=AD2DMOP9VO",
+      "images": [
+        "https://comicw.co.kr/data/editor/2506/thumb-0a1170b7ac66cb8a26d94fdb6dc7e7e5_1750428613_5195_835x1002.png",
+        "https://comicw.co.kr/data/editor/2506/thumb-0a1170b7ac66cb8a26d94fdb6dc7e7e5_1750428613_689_835x1002.png",
+        "https://comicw.co.kr/data/editor/2506/thumb-0a1170b7ac66cb8a26d94fdb6dc7e7e5_1750428613_8302_835x1002.png",
+        "https://comicw.co.kr/data/editor/2506/thumb-0a1170b7ac66cb8a26d94fdb6dc7e7e5_1750428613_97_835x1002.png"
+      ],
+      "genres": [
+        "건담",
+        "호요버스",
+        "원신",
+        "Re:제로",
+        "스파이 패밀리"
+      ]
+    },
+    {
+      "boothNumber": "BC_13, 14",
+      "boothName": "누텔라이브",
+      "promoUrl": "https://witchform.com/payform/?uuid=I6JONP6EIW",
+      "orderUrl": "https://witchform.com/payform/?uuid=I6JONP6EIW",
+      "images": [
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/24/20250624030348_c1f79apxn5.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/24/20250624062018_rn81wfbmjv.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/24/20250624084344_mbpuqxdrsc.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/24/20250624062018_5mn0pcxka8.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/24/20250624062018_he6pd10jwv.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/24/20250624062018_iwle1hqrj9.jpg"
+      ],
+      "genres": [
+        "버츄얼",
+        "스텔라이브"
+      ]
+    },
+    {
+      "boothNumber": "BE_21, 22",
+      "boothName": "없는게 있는 만물상",
+      "promoUrl": "https://comicw.co.kr/participant/9558",
+      "orderUrl": "https://witchform.com/payform/?uuid=OTMACQLIIR",
+      "images": [
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/18/20250618070647_wphe89m1ur.png",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/18/20250618070644_cwv8ge7uxj.png",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/18/20250618070642_unxf1rhwad.png",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/18/20250618070639_vrca72xwj6.png",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/18/20250618070638_1folp92c7d.png",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/07/07/20250707053846_viw9e8r0kd.png",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/18/20250618070634_1uw2xeldak.png",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/18/20250618070631_21u6nq4ifr.png",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/18/20250618070629_t8col4jmeb.png"
+      ],
+      "genres": [
+        "버츄얼",
+        "스텔라이브",
+        "블루 아카이브"
+      ]
+    },
+    {
+      "boothNumber": "BJ_24, 25",
+      "boothName": "말랑말랑 셰이크",
+      "promoUrl": "https://x.com/gyeong2424/status/1935906097589895235",
+      "orderUrl": "https://witchform.com/deposit_form.php?idx=849700",
+      "images": [
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/19/20250619081012_heg0d3t7a2.png",
+        "https://pbs.twimg.com/media/Gt23MaqXkAA076t?format=jpg&name=4096x4096",
+        "https://pbs.twimg.com/media/Gt23MajXYAA29_v?format=jpg&name=4096x4096",
+        "https://pbs.twimg.com/media/Gt23MaBaUAAKRKg?format=jpg&name=4096x4096",
+        "https://pbs.twimg.com/media/Gt23MbLWoAA5ro3?format=jpg&name=4096x4096"
+      ],
+      "genres": [
+        "호요버스",
+        "원신",
+        "붕괴: 스타레일",
+        "프로젝트 세카이",
+        "블루 아카이브",
+        "캐릭캐릭 체인지",
+        "슈가슈가룬"
+      ]
+    },
+    {
+      "boothNumber": "BL_24, 25",
+      "boothName": "말랑뽀작우유식빵",
+      "promoUrl": "https://x.com/dkshtps/status/1940744626979459578",
+      "orderUrl": "https://comicw.co.kr/participant/9549",
+      "images": [
+        "https://comicw.co.kr/data/editor/2506/thumb-ba0cc7d1c3a7ca0792c861d4f3cc4fef_1750225853_7679_835x1917.jpg",
+        "https://comicw.co.kr/data/editor/2506/thumb-ba0cc7d1c3a7ca0792c861d4f3cc4fef_1750225853_8967_835x1818.jpg",
+        "https://comicw.co.kr/data/editor/2506/thumb-ba0cc7d1c3a7ca0792c861d4f3cc4fef_1750227131_0182_835x2926.jpg"
+      ],
+      "genres": [
+        "호요버스",
+        "원신",
+        "붕괴: 스타레일",
+        "명조: 워더링 웨이브",
+        "젠레스 존 제로"
+      ]
+    },
+    {
+      "boothNumber": "BR_17, 18",
+      "boothName": "단 스토어",
+      "promoUrl": "https://x.com/danillust_/status/1938270124320166082",
+      "orderUrl": "",
+      "images": [
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/18/20250618035057_hj4sxvdqr9.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/18/20250618035519_jnwpeug9ci.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/18/20250618035310_xws1ipt5e8.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/07/07/20250707083537_tgdxmfq172.png",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/18/20250618035718_dok8tfbsl5.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/05/12/20250512062937_e3taf0uh42.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/05/12/20250512062945_benaufjioh.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/18/20250618040135_s0bxl5jdph.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/27/20250627120048_tqwg7h8rxs.jpg"
+      ],
+      "genres": [
+        "리그 오브 레전드",
+        "괴담출근"
+      ]
+    },
+    {
+      "boothNumber": "CA_37, 38",
+      "boothName": "범은하 시리얼 가게",
+      "promoUrl": "https://comicw.co.kr/participant/9550",
+      "orderUrl": "https://witchform.com/deposit_form.php?idx=844328",
+      "images": [
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/18/20250618030743_4xphe301r5.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/18/20250618030811_l7rqx14bd8.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/18/20250618030820_5vfuoxcpkq.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/22/20250622010125_pksw1mgrtc.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/18/20250618030838_wmpjf49srn.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/22/20250622035442_oxcwp3jhv7.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/07/06/20250706025635_78rml31tis.png",
+        "https://pbs.twimg.com/media/Gt-qa61bQAAUVmB?format=jpg"
+      ],
+      "genres": [
+        "호요버스",
+        "붕괴3rd",
+        "붕괴: 스타레일",
+        "원신",
+        "젠레스 존 제로",
+        "BL",
+        "터닝"
+      ]
+    },
+    {
+      "boothNumber": "CM_38, 39",
+      "boothName": "파스텔은 영어로 파스텔",
+      "promoUrl": "https://x.com/Two_Manu_/status/1932587484678156627",
+      "orderUrl": "https://witchform.com/payform/?uuid=OGUBO4DPFR",
+      "images": [
+        "https://pbs.twimg.com/media/GtHt_RYaMAAgV-F?format=jpg&name=4096x4096",
+        "https://pbs.twimg.com/media/GtHuA95bMAEsu51?format=jpg&name=4096x4096",
+        "https://pbs.twimg.com/media/GtHuCEOa0AAW5LR?format=jpg&name=4096x4096",
+        "https://pbs.twimg.com/media/GtHuCkWaoAAl2UI?format=jpg&name=4096x4096"
       ],
       "genres": [
         "버츄얼",
