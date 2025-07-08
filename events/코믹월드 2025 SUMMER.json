@@ -85,6 +85,34 @@
       ]
     },
     {
+      "boothNumber": "CF_75",
+      "boothName": "블루레몬 치즈케이크",
+      "promoUrl": "https://x.com/B_Soyo1/status/1937424147354882406",
+      "orderUrl": "https://witchform.com/payform/VLI7UCWJI2",
+      "images": [
+        "https://comicw.co.kr/data/editor/2506/566a0c089e4032be3e7d6b5537ef5c79_1750780284_7729.png",
+        "https://pbs.twimg.com/media/GuMcBdWakAAPKzD?format=jpg&name=4096x4096",
+        "https://pbs.twimg.com/media/GuMcCFxbMAApMei?format=jpg&name=4096x4096"
+      ],
+      "genres": [
+        "블루 아카이브"
+      ]
+    },
+    {
+      "boothNumber": "CG_11",
+      "boothName": "트릭컬 카르텔",
+      "promoUrl": "https://x.com/Kim_Dante_Art/status/1937453491611664705",
+      "orderUrl": "https://witchform.com/payform/?uuid=QVSRBLEYOZ",
+      "images": [
+        "https://comicw.co.kr/data/editor/2506/thumb-1ad1999b8c2121bbe0502e43a55c68ad_1750762699_1727_835x835.jpg",
+        "https://comicw.co.kr/data/editor/2506/1ad1999b8c2121bbe0502e43a55c68ad_1750762765_4268.png",
+        "https://comicw.co.kr/data/editor/2506/1ad1999b8c2121bbe0502e43a55c68ad_1750762769_0127.png"
+      ],
+      "genres": [
+        "트릭컬 RE:VIVE"
+      ]
+    },
+    {
       "boothNumber": "CG_28",
       "boothName": "홀로점프",
       "promoUrl": "https://x.com/Mi_Ke0224/status/1934560008345403699",
@@ -154,6 +182,23 @@
       ]
     },
     {
+      "boothNumber": "CI_23",
+      "boothName": "몽그작몽그작",
+      "promoUrl": "https://x.com/hyem0ng",
+      "orderUrl": "https://witchform.com/payform/?uuid=BNFSRCXRLF",
+      "images": [
+        "https://comicw.co.kr/data/editor/2506/2a7c241112bbef4e8b806d6db8128226_1750786572_2389.png",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/25/20250625022703_o7iap69sxw.png",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/25/20250625011347_5d84aqv6g2.png"
+      ],
+      "genres": [
+        "블루 아카이브",
+        "봇치 더 록",
+        "아이돌 마스터",
+        "음성합성엔진 (일본)"
+      ]
+    },
+    {
       "boothNumber": "CI_49",
       "boothName": "니케 정실",
       "promoUrl": "https://comicw.co.kr/participant/9547",
@@ -169,6 +214,58 @@
       ],
       "genres": [
         "승리의 여신: 니케"
+      ]
+    },
+    {
+      "boothNumber": "CI_60",
+      "boothName": "213번 도로",
+      "promoUrl": "https://comicw.co.kr/participant/9589",
+      "orderUrl": "",
+      "images": [
+        "https://comicw.co.kr/data/editor/2506/6f153da3c2501d3fb117825c6089360c_1750837490_3783.png",
+        "https://comicw.co.kr/data/editor/2506/6f153da3c2501d3fb117825c6089360c_1750837515_3403.png",
+        "https://comicw.co.kr/data/editor/2506/6f153da3c2501d3fb117825c6089360c_1750837518_1064.png",
+        "https://comicw.co.kr/data/editor/2506/6f153da3c2501d3fb117825c6089360c_1750837520_6426.png",
+        "https://comicw.co.kr/data/editor/2506/thumb-6f153da3c2501d3fb117825c6089360c_1750837523_6336_835x737.png",
+        "https://comicw.co.kr/data/editor/2506/thumb-6f153da3c2501d3fb117825c6089360c_1750837526_7732_835x737.png"
+      ],
+      "genres": [
+        "좀비고등학교",
+        "사운드 볼텍스",
+        "블루 아카이브",
+        "포켓몬스터",
+        "음성합성엔진 (일본)"
+      ]
+    },
+    {
+      "boothNumber": "CJ_66",
+      "boothName": "쁘띠명조",
+      "promoUrl": "https://x.com/leemile0505",
+      "orderUrl": "https://witchform.com/payform/?uuid=0JLGDEJDGV",
+      "images": [
+        "https://comicw.co.kr/data/editor/2506/thumb-495c885c889bc9953693fa025225047d_1750822413_3106_835x835.png",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/25/20250625113049_cs0f965exl.png",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/25/20250625113109_elahsd42x9.png"
+      ],
+      "genres": [
+        "명조: 워더링 웨이브"
+      ]
+    },
+    {
+      "boothNumber": "CM_46",
+      "boothName": "내가 왜 말랑이거야?",
+      "promoUrl": "https://comicw.co.kr/participant/9584",
+      "orderUrl": "",
+      "images": [
+        "https://comicw.co.kr/data/editor/2506/thumb-1f82dd1abba849398c6708f4613af173_1750775902_6631_835x595.png",
+        "https://i.imgur.com/qNSqcr4.jpeg"
+      ],
+      "genres": [
+        "말랑이 온라인",
+        "프리티 시리즈",
+        "음성합성엔진 (일본)",
+        "데뷔못하면죽는병걸림",
+        "에일리언 스테이지"
       ]
     },
     {
@@ -242,6 +339,23 @@
       ]
     },
     {
+      "boothNumber": "BC_09, 10",
+      "boothName": "썸머 워프",
+      "promoUrl": "https://x.com/llll4414_j/status/1937827571229757654",
+      "orderUrl": "https://witchform.com/deposit_form.php?idx=852681",
+      "images": [
+        "https://comicw.co.kr/data/editor/2506/14ea529affcca33f0a6dddd997df5676_1750779979_7727.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/24/20250624030301_usq5i89who.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/24/20250624030326_osq4eal50u.jpg",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/24/20250624030350_xfcs35kr2w.jpg"
+      ],
+      "genres": [
+        "호요버스",
+        "원신",
+        "붕괴: 스타레일"
+      ]
+    },
+    {
       "boothNumber": "BC_13, 14",
       "boothName": "누텔라이브",
       "promoUrl": "https://witchform.com/payform/?uuid=I6JONP6EIW",
@@ -279,6 +393,21 @@
         "버츄얼",
         "스텔라이브",
         "블루 아카이브"
+      ]
+    },
+    {
+      "boothNumber": "BI_01, 02",
+      "boothName": "호요역 5번 출구",
+      "promoUrl": "https://witchform.com/payform/?uuid=GRFWVLTBZX",
+      "orderUrl": "https://witchform.com/payform/?uuid=GRFWVLTBZX",
+      "images": [
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/28/20250628063342_lnxg59mc4a.png",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/20/20250620024608_2pandjxof6.png",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/07/05/20250705104054_ikf79t15rq.png"
+      ],
+      "genres": [
+        "호요버스",
+        "원신"
       ]
     },
     {
@@ -368,6 +497,23 @@
       ]
     },
     {
+      "boothNumber": "CL_75, 76",
+      "boothName": "음합엔 집합소",
+      "promoUrl": "https://x.com/ube2an/status/1939866591472324994",
+      "orderUrl": "https://witchform.com/deposit_form.php?idx=846490",
+      "images": [
+        "https://comicw.co.kr/data/file/participant/thumb-33535292_YsQO5kW1_03c3ea1e7412df64b0164675bb03b0374d81afe1_835x835.jpg",
+        "https://comicw.co.kr/data/editor/2506/thumb-6218ba52ed815d4501a451c62b003436_1750757938_8868_835x1357.jpg",
+        "https://comicw.co.kr/data/editor/2506/thumb-6218ba52ed815d4501a451c62b003436_1750757939_0127_835x1141.jpg",
+        "https://comicw.co.kr/data/editor/2506/thumb-6218ba52ed815d4501a451c62b003436_1750757939_1441_835x1129.jpg",
+        "https://comicw.co.kr/data/editor/2506/thumb-6218ba52ed815d4501a451c62b003436_1750757938_5937_835x1270.jpg"
+      ],
+      "genres": [
+        "음성합성엔진 (일본)",
+        "음성합성엔진 (한국)"
+      ]
+    },
+    {
       "boothNumber": "CM_38, 39",
       "boothName": "파스텔은 영어로 파스텔",
       "promoUrl": "https://x.com/Two_Manu_/status/1932587484678156627",
@@ -381,6 +527,30 @@
       "genres": [
         "버츄얼",
         "스텔라이브"
+      ]
+    },
+    {
+      "boothNumber": "BP_01, 02, 03, 04",
+      "boothName": "감뀰포장학과",
+      "promoUrl": "https://x.com/gam_kkyul/status/1937475290755957173",
+      "orderUrl": "",
+      "images": [
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/25/20250625125017_aup7nbto4w.PNG",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/24/20250624022712_65besuv9mj.PNG",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/24/20250624065248_xtel2q5uak.png",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/25/20250625010132_rsomif8j2b.PNG",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/24/20250624065203_q2tumdefw0.PNG",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/24/20250624065202_1sdlfj0ouv.PNG",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/06/24/20250624065202_ewha0igndl.PNG"
+      ],
+      "genres": [
+        "블루 아카이브",
+        "명조: 워더링 웨이브",
+        "이터널 리턴",
+        "승리의 여신: 니케",
+        "호요버스",
+        "붕괴: 스타레일",
+        "젠레스 존 제로"
       ]
     }
   ]
