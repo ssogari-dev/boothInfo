@@ -540,50 +540,45 @@
         
         // 부스 번호 정렬 함수
         function parseBoothNumber(boothNumber) {
-            // 부스 번호를 알파벳 부분과 숫자 부분으로 분리
-            const match = boothNumber.match(/^([A-Z]+)-?(\d+)?$/);
-            if (match) {
-                const letters = match[1];
-                const number = match[2] ? parseInt(match[2]) : 0;
-                return { letters, number };
-            }
-            return { letters: boothNumber, number: 0 };
+    // 여러 번호가 있을 경우 첫 번째만 사용
+    const first = boothNumber.split(',')[0].trim();
+    // 알파벳+언더바+숫자 구조 파싱
+    const match = first.match(/^([A-Z]+)[_-]?(\d+)?$/);
+    if (match) {
+        const letters = match[1];
+        const number = match[2] ? parseInt(match[2], 10) : 0;
+        return { letters, number };
+    }
+    return { letters: first, number: 0 };
+}
+
+function sortBooths() {
+    if (eventData.booths.length === 0) {
+        alert('정렬할 부스가 없습니다.');
+        return;
+    }
+
+    eventData.booths.sort((a, b) => {
+        const parsedA = parseBoothNumber(a.boothNumber || '');
+        const parsedB = parseBoothNumber(b.boothNumber || '');
+
+        // 1. 알파벳 부분을 문자 그대로 비교 (길이 무시)
+        if (parsedA.letters !== parsedB.letters) {
+            return parsedA.letters < parsedB.letters ? -1 : 1;
         }
 
-        function sortBooths() {
-            if (eventData.booths.length === 0) {
-                alert('정렬할 부스가 없습니다.');
-                return;
-            }
+        // 2. 알파벳이 같으면 숫자 순으로 정렬
+        return parsedA.number - parsedB.number;
+    });
 
-            // 부스 번호 정렬
-            eventData.booths.sort((a, b) => {
-                const parsedA = parseBoothNumber(a.boothNumber || '');
-                const parsedB = parseBoothNumber(b.boothNumber || '');
+    loadEventData();
 
-                // 1. 알파벳 부분의 길이로 먼저 정렬 (A, B, C... 다음에 AA, AB, AC...)
-                if (parsedA.letters.length !== parsedB.letters.length) {
-                    return parsedA.letters.length - parsedB.letters.length;
-                }
+    const sortedNumbers = eventData.booths.map(booth => booth.boothNumber).filter(Boolean);
+    if (sortedNumbers.length > 0) {
+        alert(`부스가 정렬되었습니다!\n순서: ${sortedNumbers.slice(0, 10).join(', ')}${sortedNumbers.length > 10 ? '...' : ''}`);
+    }
+}
 
-                // 2. 같은 길이면 알파벳 순으로 정렬
-                if (parsedA.letters !== parsedB.letters) {
-                    return parsedA.letters.localeCompare(parsedB.letters);
-                }
-
-                // 3. 알파벳이 같으면 숫자 순으로 정렬
-                return parsedA.number - parsedB.number;
-            });
-
-            // UI 다시 로드
-            loadEventData();
-            
-            // 정렬 완료 메시지
-            const sortedNumbers = eventData.booths.map(booth => booth.boothNumber).filter(Boolean);
-            if (sortedNumbers.length > 0) {
-                alert(`부스가 정렬되었습니다!\n순서: ${sortedNumbers.slice(0, 10).join(', ')}${sortedNumbers.length > 10 ? '...' : ''}`);
-            }
-        }
 
         // 부스 번호 대문자 변환 함수
         function convertBoothNumbersToUpperCase() {
