@@ -2145,6 +2145,56 @@ body {
     .sidebar-header {
         padding: 15px;
     }
+    
+    /* 헤더 스크롤 기능 추가 */
+    .header {
+        max-height: 80vh; /* 화면 높이의 80%로 제한 */
+        overflow-y: auto; /* 세로 스크롤 활성화 */
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .header h1 {
+        flex-shrink: 0; /* 제목은 고정 크기 유지 */
+    }
+    
+    .controls {
+        flex: 1;
+        overflow-y: auto; /* 컨트롤 영역에 스크롤 적용 */
+        padding-bottom: 10px;
+    }
+    
+    .header-toggle-bar {
+        flex-shrink: 0; /* 토글바는 항상 하단에 고정 */
+        position: sticky;
+        bottom: 0;
+        z-index: 1001;
+    }
+    
+    /* 장르 선택기 스크롤 처리 */
+    .genre-selector {
+        max-height: 40vh; /* 장르 목록 최대 높이 제한 */
+        overflow-y: auto;
+        padding: 5px;
+    }
+    
+    /* 스크롤바 스타일링 */
+    .header::-webkit-scrollbar,
+    .genre-selector::-webkit-scrollbar {
+        width: 4px;
+    }
+    
+    .header::-webkit-scrollbar-track,
+    .genre-selector::-webkit-scrollbar-track {
+        background: rgba(0,0,0,0.1);
+        border-radius: 2px;
+    }
+    
+    .header::-webkit-scrollbar-thumb,
+    .genre-selector::-webkit-scrollbar-thumb {
+        background: rgba(0,0,0,0.3);
+        border-radius: 2px;
+    }
 }
 
 @media (max-width: 480px) {

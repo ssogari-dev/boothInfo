@@ -89,9 +89,9 @@ function initializeGenreSelector() {
             return a[0].localeCompare(b[0], 'ko');
         });
 
-    // 장르를 주요 장르(개수 > 1)와 기타 장르(개수 <= 1)로 분리
-    const mainGenres = sortedGenres.filter(([genre, count]) => count > 1);
-    const minorGenres = sortedGenres.filter(([genre, count]) => count <= 1);
+    // 장르를 주요 장르와 기타 장르로 분리 (개수 임계값 적용)
+    const mainGenres = sortedGenres.filter(([genre, count]) => count > CONFIG.GENRE_COUNT_THRESHOLD);
+    const minorGenres = sortedGenres.filter(([genre, count]) => count <= CONFIG.GENRE_COUNT_THRESHOLD);
 
     const genreSelector = document.getElementById('genreSelector');
     genreSelector.innerHTML = '';

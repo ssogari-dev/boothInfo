@@ -5,20 +5,15 @@ function calculateAndApplyHeaderHeight() {
     
     if (!header || !container) return;
     
-    // 헤더의 실제 높이 측정
-    const headerHeight = header.offsetHeight;
-    
-    // 안전 여백 추가 (장르가 늘어날 것을 고려해서 ㅇㅇ)
-    const safetyMargin = 20;
-    const totalMargin = headerHeight + safetyMargin - 30;
-    
-    // PC에서만 동적 마진 적용
     if (window.innerWidth > 768) {
+        // PC에서는 기존 로직 유지
+        const headerHeight = header.offsetHeight;
+        const safetyMargin = 20;
+        const totalMargin = headerHeight + safetyMargin - 30;
         container.style.marginTop = totalMargin + 'px';
-        console.log(`헤더 높이: ${headerHeight}px, 적용된 마진: ${totalMargin}px`);
     } else {
-        // 모바일/태블릿에서는 기존 CSS 규칙 사용하기 (모바일에서는 헤더 높이 고정)
-        container.style.marginTop = '';
+        // 모바일에서는 고정 마진 사용 (스크롤 적용으로 인해)
+        container.style.marginTop = '80vh'; // 헤더 최대 높이와 동일
     }
 }
 
