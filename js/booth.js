@@ -227,7 +227,7 @@ function createBoothCard(booth) {
     
     const isBookmarked = bookmarks.includes(booth.boothNumber);
     const orderButton = booth.orderUrl ? 
-        `<a href="${booth.orderUrl}" target="_blank" class="action-btn order-btn">선입금 주문</a>` : '';
+        `<a href="${booth.orderUrl}" target="_blank" class="action-btn order-btn">선입금/통판</a>` : '';
     
     const boothNameElement = booth.boothName ? 
         `<div class="booth-name">${booth.boothName}</div>` : '';
