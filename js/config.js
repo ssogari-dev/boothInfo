@@ -3,7 +3,7 @@ const CONFIG = {
     ZOOM_MIN: 0.5,
     ZOOM_MAX: 5,
     ZOOM_STEP: 0.2,
-    GENRE_COUNT_THRESHOLD: 1,
+    GENRE_COUNT_THRESHOLD: 2,
     TUTORIAL_STORAGE_KEY: 'tutorialShown',
     BOOKMARK_STORAGE_KEY: 'bookmarks',
     LOADING_STRATEGY: {
