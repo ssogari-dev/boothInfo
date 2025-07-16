@@ -21,6 +21,7 @@
 
         .header {
             background: rgba(255, 255, 255, 0.95);
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             padding: 20px;
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
@@ -100,7 +101,7 @@
             padding: 20px;
             margin-bottom: 20px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        }
+        } 
 
         .section-title {
             font-size: 1.3rem;
@@ -989,6 +990,7 @@ function sortBooths() {
                         <label>부스 번호</label>
                         <input type="text" class="form-control" value="${booth.boothNumber || ''}" 
                                onchange="updateBooth(${index}, 'boothNumber', this.value)"
+                               onblur="checkDuplicateBooth(${index}, this.value)"
                                placeholder="예: A-01, B-15">
                     </div>
                     <div class="form-group">
@@ -1123,8 +1125,56 @@ function sortBooths() {
             }
         }
 
-        // 부스 정보 업데이트
+        // 부스 번호 중복 검사 함수
+        function checkDuplicateBooth(currentIndex, newBoothNumber) {
+            if (!newBoothNumber || newBoothNumber.trim() === '') return;
+            
+            const normalizedNewNumber = newBoothNumber.trim().toUpperCase();
+            
+            // 현재 부스를 제외한 다른 부스들과 비교
+            const duplicateBooth = eventData.booths.find((booth, index) => {
+                if (index === currentIndex) return false;
+                const normalizedExisting = (booth.boothNumber || '').trim().toUpperCase();
+                return normalizedExisting === normalizedNewNumber;
+            });
+            
+            if (duplicateBooth) {
+                const duplicateInfo = duplicateBooth.boothName ? 
+                    `${duplicateBooth.boothNumber} (${duplicateBooth.boothName})` : 
+                    duplicateBooth.boothNumber;
+                
+                const message = `이미 존재하는 부스 번호입니다.\n\n` +
+                               `기존 부스: ${duplicateInfo}\n` +
+                               `입력한 번호: ${newBoothNumber}\n\n` +
+                               `그래도 계속 진행하시겠습니까?`;
+                
+                if (!confirm(message)) {
+                    // 사용자가 '아니오'를 선택한 경우
+                    const input = event.target || document.querySelector(`input[value="${newBoothNumber}"]`);
+                    if (input) {
+                        // 원래 값으로 복원
+                        const originalValue = eventData.booths[currentIndex].boothNumber || '';
+                        input.value = originalValue;
+                        
+                        // 포커스를 다시 주어 수정하도록 유도
+                        setTimeout(() => {
+                            input.focus();
+                            input.select();
+                        }, 100);
+                        
+                        // 데이터도 원래대로 복원
+                        eventData.booths[currentIndex].boothNumber = originalValue;
+                        updatePreview();
+                    }
+                }
+                // 사용자가 '예'를 선택한 경우는 그대로 진행
+            }
+        }
+
+        // 부스 정보 업데이트 (기존 함수 수정)
         function updateBooth(index, field, value) {
+            // boothNumber 필드의 경우 중복 검사는 onblur에서 처리하므로
+            // 여기서는 단순히 값만 업데이트
             eventData.booths[index][field] = value;
             updatePreview();
             saveToLocalStorage(); // 자동 저장
