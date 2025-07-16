@@ -21,6 +21,11 @@ function initializeImageModal() {
         e.preventDefault();
         return false;
     });
+
+    // 터치 제스처 이벤트 리스너 추가
+    imageViewer.addEventListener('touchstart', handleTouchStart, { passive: false });
+    imageViewer.addEventListener('touchmove', handleTouchMove, { passive: false });
+    imageViewer.addEventListener('touchend', handleTouchEnd, { passive: false });
 }
 
 // 이미지 모달 열기
@@ -39,6 +44,7 @@ function openImageModal(boothNumber, imageIndex) {
     const modalSliderControls = document.getElementById('modalSliderControls');
     const modalPrevBtn = document.getElementById('modalPrevBtn');
     const modalNextBtn = document.getElementById('modalNextBtn');
+    const modalContent = modal.querySelector('.image-modal-content');
     
     // 제목에 부스명 포함
     const titleText = booth.boothName ? 
@@ -61,7 +67,6 @@ function openImageModal(boothNumber, imageIndex) {
             dot.onclick = () => goToModalSlide(index);
             modalSliderControls.appendChild(dot);
         });
-        
         modalPrevBtn.style.display = 'block';
         modalNextBtn.style.display = 'block';
     } else {
@@ -71,12 +76,40 @@ function openImageModal(boothNumber, imageIndex) {
     
     updateZoomDisplay();
     updateImageTransform();
+    
+    // 애니메이션 최적화 설정
+    modal.style.willChange = 'opacity';
+    modalContent.style.willChange = 'transform';
+    // 3D 변환으로 GPU 가속
+    modalContent.style.transform = 'translate3d(0, 20px, 0) scale(0.95)';
     modal.style.display = 'flex';
+    modal.classList.add('active');
+    // 애니메이션 실행
+    requestAnimationFrame(() => {
+        modalContent.style.transform = 'translate3d(0, 0, 0) scale(1)';
+    });
+    // 애니메이션 완료 후 will-change 제거
+    setTimeout(() => {
+        modal.style.willChange = 'auto';
+        modalContent.style.willChange = 'auto';
+    }, 300);
 }
 
 // 이미지 모달 닫기
 function closeImageModal() {
-    document.getElementById('imageModal').style.display = 'none';
+    const modal = document.getElementById('imageModal');
+    const modalContent = modal.querySelector('.image-modal-content');
+    // 애니메이션 최적화 설정
+    modal.style.willChange = 'opacity';
+    modalContent.style.willChange = 'transform';
+    // 닫기 애니메이션
+    modalContent.style.transform = 'translate3d(0, 20px, 0) scale(0.95)';
+    setTimeout(() => {
+        modal.style.display = 'none';
+        modal.classList.remove('active');
+        modal.style.willChange = 'auto';
+        modalContent.style.willChange = 'auto';
+    }, 300);
 }
 
 // 모달 슬라이드 변경
@@ -214,4 +247,85 @@ function endDrag() {
         console.log('드래그 종료');
     }
     isDragging = false;
+}
+
+// 터치 스와이프 및 핀치 줌 상태
+let touchState = {
+    startX: 0,
+    startY: 0,
+    currentX: 0,
+    currentY: 0,
+    isSwiping: false,
+    minSwipeDistance: 50
+};
+
+let pinchState = {
+    initialDistance: 0,
+    initialZoom: 1
+};
+
+function handleTouchStart(e) {
+    if (e.touches.length === 2) {
+        // 핀치 줌 시작
+        const touch1 = e.touches[0];
+        const touch2 = e.touches[1];
+        pinchState.initialDistance = Math.hypot(
+            touch2.clientX - touch1.clientX,
+            touch2.clientY - touch1.clientY
+        );
+        pinchState.initialZoom = currentZoom;
+    } else if (e.touches.length === 1) {
+        // 단일 터치 (스와이프)
+        const touch = e.touches[0];
+        touchState.startX = touch.clientX;
+        touchState.startY = touch.clientY;
+        touchState.isSwiping = false;
+    }
+}
+
+function handleTouchMove(e) {
+    if (e.touches.length === 2) {
+        // 핀치 줌
+        const touch1 = e.touches[0];
+        const touch2 = e.touches[1];
+        const currentDistance = Math.hypot(
+            touch2.clientX - touch1.clientX,
+            touch2.clientY - touch1.clientY
+        );
+        const scale = currentDistance / pinchState.initialDistance;
+        const newZoom = Math.max(CONFIG.ZOOM_MIN, 
+            Math.min(CONFIG.ZOOM_MAX, pinchState.initialZoom * scale));
+        currentZoom = newZoom;
+        updateZoomDisplay();
+        updateImageTransform();
+        e.preventDefault();
+    } else if (e.touches.length === 1 && currentZoom === 1) {
+        // 단일 터치 스와이프
+        const touch = e.touches[0];
+        touchState.currentX = touch.clientX;
+        touchState.currentY = touch.clientY;
+        const deltaX = touchState.currentX - touchState.startX;
+        const deltaY = touchState.currentY - touchState.startY;
+        // 수평 스와이프 감지
+        if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 10) {
+            touchState.isSwiping = true;
+            e.preventDefault();
+        }
+    }
+}
+
+function handleTouchEnd(e) {
+    if (touchState.isSwiping && currentZoom === 1) {
+        const deltaX = touchState.currentX - touchState.startX;
+        if (Math.abs(deltaX) > touchState.minSwipeDistance) {
+            if (deltaX > 0) {
+                // 오른쪽 스와이프 - 이전 이미지
+                changeModalSlide(-1);
+            } else {
+                // 왼쪽 스와이프 - 다음 이미지
+                changeModalSlide(1);
+            }
+        }
+    }
+    touchState.isSwiping = false;
 }

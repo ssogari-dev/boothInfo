@@ -2498,3 +2498,246 @@ button:focus,
     
 
 }
+
+/* PC에서 장르 선택기 스크롤 처리 */
+@media (min-width: 769px) {
+    .genre-selector {
+        max-height: 250px; /* PC에서 최대 높이 제한 */
+        overflow-y: auto;
+        padding: 5px;
+        border-radius: 8px;
+    }
+    
+    /* PC 스크롤바 스타일링 */
+    .genre-selector::-webkit-scrollbar {
+        width: 6px;
+    }
+    
+    .genre-selector::-webkit-scrollbar-track {
+        background: rgba(0,0,0,0.1);
+        border-radius: 3px;
+    }
+    
+    .genre-selector::-webkit-scrollbar-thumb {
+        background: rgba(0,0,0,0.3);
+        border-radius: 3px;
+    }
+    
+    .genre-selector::-webkit-scrollbar-thumb:hover {
+        background: rgba(0,0,0,0.5);
+    }
+}
+
+/* 모바일에서 헤더 접기 시 마진 조정 */
+@media (max-width: 768px) {
+    .container {
+        transition: margin-top 0.4s ease; /* 부드러운 마진 전환 */
+    }
+    
+    .container.header-hidden {
+        margin-top: 40px !important; /* 토글바 높이만큼 고정 */
+    }
+    
+    .header-toggle-bar {
+        height: 40px; /* 토글바 높이 명시 */
+        flex-shrink: 0;
+    }
+}
+
+/* =========================
+   성능 우선 애니메이션 최적화
+   ========================= */
+
+/* 성능 우선 애니메이션 기본 설정 */
+* {
+    /* 기본적으로 will-change 비활성화 */
+    will-change: auto;
+}
+
+/* 애니메이션이 필요한 요소만 하드웨어 가속 */
+.booth-card,
+.image-slider,
+.sidebar,
+.floating-btn,
+.modal-overlay,
+.modal-content,
+.toggle-switch,
+.slider-arrow,
+.zoom-btn,
+.reset-btn {
+    /* 3D 변환 강제로 하드웨어 가속 활성화 */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* 부스 카드 애니메이션 최적화 */
+.booth-card {
+    /* transform과 opacity만 사용 (layout triggering 방지) */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    will-change: transform, box-shadow;
+}
+
+.booth-card:hover {
+    /* GPU 가속화된 transform 사용 */
+    transform: translate3d(0, -2px, 0);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* 이미지 슬라이더 최적화 */
+.image-slider {
+    /* 3D 변환으로 GPU 가속 */
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+}
+
+/* 사이드바 애니메이션 최적화 */
+.sidebar {
+    /* 3D 변환으로 GPU 가속 */
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+    transform: translate3d(100%, 0, 0);
+}
+
+.sidebar.active {
+    transform: translate3d(0, 0, 0);
+}
+
+.sidebar.closing {
+    transform: translate3d(100%, 0, 0);
+    transition: transform 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+/* 모달 애니메이션 최적화 */
+.image-modal-overlay {
+    transition: opacity 0.3s ease;
+    will-change: opacity;
+    opacity: 0;
+}
+
+.image-modal-overlay.active {
+    opacity: 1;
+}
+
+.image-modal-content {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+    transform: translate3d(0, 20px, 0) scale(0.95);
+}
+
+.image-modal-overlay.active .image-modal-content {
+    transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* 플로팅 버튼 최적화 */
+.floating-btn {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                box-shadow 0.3s ease;
+    will-change: transform, box-shadow;
+    transform: translate3d(0, 0, 0);
+}
+
+.floating-btn:hover {
+    transform: translate3d(0, -3px, 0) scale(1.05);
+}
+
+.floating-btn:active {
+    transform: translate3d(0, -1px, 0) scale(1.02);
+}
+
+/* 토글 스위치 최적화 */
+.toggle-switch::after {
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+}
+
+.toggle-switch.active::after {
+    transform: translate3d(25px, 0, 0);
+}
+
+/* 북마크 카운트 애니메이션 최적화 */
+.bookmark-count {
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    will-change: transform;
+    transform: translate3d(0, 0, 0) scale(0);
+}
+
+.bookmark-count.show {
+    transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* 장르 태그 애니메이션 최적화 */
+.genre-tag {
+    transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+    will-change: background-color, color, transform;
+    transform: translate3d(0, 0, 0);
+}
+
+.genre-tag:hover {
+    transform: translate3d(0, -1px, 0);
+}
+
+/* 슬라이더 컨트롤 최적화 */
+.slider-arrow {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    will-change: transform, background-color;
+    transform: translate3d(0, -50%, 0);
+}
+
+.slider-arrow:hover {
+    transform: translate3d(0, -50%, 0) scale(1.1);
+}
+
+.slider-dot {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    will-change: transform, background-color;
+    transform: translate3d(0, 0, 0);
+}
+
+.slider-dot.active {
+    transform: translate3d(0, 0, 0) scale(1.2);
+}
+
+/* 이미지 호버 효과 최적화 */
+.image-slider img,
+.image-stacked img {
+    transition: transform 0.3s ease, filter 0.3s ease;
+    will-change: transform, filter;
+    transform: translate3d(0, 0, 0);
+}
+
+.image-slider img:hover,
+.image-stacked img:hover {
+    transform: translate3d(0, 0, 0) scale(1.02);
+    filter: brightness(1.1);
+}
+
+/* 애니메이션 완료 후 will-change 제거 */
+.booth-card:not(:hover) {
+    will-change: auto;
+}
+
+.image-slider:not(.transitioning) {
+    will-change: auto;
+}
+
+/* 성능 최적화를 위한 추가 설정 */
+.booth-grid {
+    /* 그리드 레이아웃 최적화 */
+    contain: layout style paint;
+}
+
+.booth-card {
+    /* 각 카드의 렌더링 최적화 */
+    contain: layout style paint;
+}
+
+/* 스크롤 성능 최적화 */
+.sidebar-content,
+.bookmark-list {
+    /* 스크롤 최적화 */
+    -webkit-overflow-scrolling: touch;
+    transform: translate3d(0, 0, 0);
+}

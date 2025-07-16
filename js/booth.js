@@ -225,9 +225,13 @@ function createBoothCard(booth) {
     const card = document.createElement('div');
     card.className = 'booth-card';
     
+    // 성능 최적화 설정
+    card.style.transform = 'translate3d(0, 0, 0)';
+    card.style.backfaceVisibility = 'hidden';
+    card.style.perspective = '1000px';
+    
     const isBookmarked = bookmarks.includes(booth.boothNumber);
-    const orderButton = booth.orderUrl ? 
-        `<a href="${booth.orderUrl}" target="_blank" class="action-btn order-btn">선입금/통판</a>` : '';
+    const orderButton = booth.orderUrl ? `<a href="${booth.orderUrl}" target="_blank" class="action-btn order-btn">선입금/통판</a>` : '';
     
     const boothNameElement = booth.boothName ? 
         `<div class="booth-name">${booth.boothName}</div>` : '';
@@ -255,6 +259,19 @@ function createBoothCard(booth) {
             ${orderButton}
         </div>
     `;
+
+    // 이미지 슬라이더 최적화
+    const imageSlider = card.querySelector('.image-slider');
+    if (imageSlider) {
+        imageSlider.style.transform = 'translate3d(0, 0, 0)';
+        imageSlider.style.backfaceVisibility = 'hidden';
+        // 이미지들도 최적화
+        const images = imageSlider.querySelectorAll('img');
+        images.forEach(img => {
+            img.style.transform = 'translate3d(0, 0, 0)';
+            img.style.backfaceVisibility = 'hidden';
+        });
+    }
 
     return card;
 }
