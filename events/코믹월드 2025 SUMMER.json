@@ -831,6 +831,35 @@
       ]
     },
     {
+      "boothNumber": "CD_15, 16",
+      "boothName": "물건너 친구들",
+      "promoUrl": "https://comicw.co.kr/participant/10221",
+      "orderUrl": "https://witchform.com/payform/ZDV45IJTH7",
+      "images": [
+        "https://comicw.co.kr/data/editor/2507/thumb-677845ed790448c98da86a04bdfcb7fa_1752749000_4724_835x1181.jpg",
+        "https://comicw.co.kr/data/editor/2507/thumb-677845ed790448c98da86a04bdfcb7fa_1752748958_5502_835x1010.jpg",
+        "https://comicw.co.kr/data/editor/2507/thumb-677845ed790448c98da86a04bdfcb7fa_1752748959_8112_835x1010.jpg",
+        "https://comicw.co.kr/data/editor/2507/thumb-677845ed790448c98da86a04bdfcb7fa_1752748961_2195_835x1010.jpg",
+        "https://comicw.co.kr/data/editor/2507/thumb-677845ed790448c98da86a04bdfcb7fa_1752748962_4052_835x1010.jpg",
+        "https://comicw.co.kr/data/editor/2507/thumb-677845ed790448c98da86a04bdfcb7fa_1752748963_644_835x1010.jpg",
+        "https://comicw.co.kr/data/editor/2507/thumb-677845ed790448c98da86a04bdfcb7fa_1752748964_7808_835x1010.jpg",
+        "https://comicw.co.kr/data/editor/2507/thumb-677845ed790448c98da86a04bdfcb7fa_1752749038_7451_835x1010.jpg",
+        "https://comicw.co.kr/data/editor/2507/thumb-677845ed790448c98da86a04bdfcb7fa_1752749041_1299_835x1010.jpg",
+        "https://comicw.co.kr/data/editor/2507/thumb-677845ed790448c98da86a04bdfcb7fa_1752749042_8562_835x1010.jpg",
+        "https://comicw.co.kr/data/editor/2507/thumb-677845ed790448c98da86a04bdfcb7fa_1752749044_2125_835x1010.jpg"
+      ],
+      "genres": [
+        "호요버스",
+        "원신",
+        "벽람항로",
+        "명일방주",
+        "오리지널 캐릭터",
+        "젠레스 존 제로",
+        "블루 아카이브",
+        "소녀전선"
+      ]
+    },
+    {
       "boothNumber": "CD_41, 42",
       "boothName": "블루아카농빵농빵",
       "promoUrl": "https://x.com/Mikiri_1/status/1939719306079809931",
@@ -1293,6 +1322,26 @@
       ],
       "genres": [
         "블루 아카이브"
+      ]
+    },
+    {
+      "boothNumber": "CH_43",
+      "boothName": "파스타네",
+      "promoUrl": "https://x.com/TANE_137/status/1945922439801872729",
+      "orderUrl": "",
+      "images": [
+        "https://comicw.co.kr/data/editor/2507/079ebc8dba7b9fbf145769c7e03487f1_1752776575_0259.png",
+        "https://comicw.co.kr/data/editor/2507/079ebc8dba7b9fbf145769c7e03487f1_1752776578_6648.jpg",
+        "https://comicw.co.kr/data/editor/2507/079ebc8dba7b9fbf145769c7e03487f1_1752777206_8404.jpg",
+        "https://comicw.co.kr/data/editor/2507/079ebc8dba7b9fbf145769c7e03487f1_1752777235_5759.jpg",
+        "https://comicw.co.kr/data/editor/2507/079ebc8dba7b9fbf145769c7e03487f1_1752777244_5601.jpg",
+        "https://comicw.co.kr/data/editor/2507/079ebc8dba7b9fbf145769c7e03487f1_1752777247_4306.jpg"
+      ],
+      "genres": [
+        "호요버스",
+        "원신",
+        "붕괴: 스타레일",
+        "젠레스 존 제로"
       ]
     },
     {
