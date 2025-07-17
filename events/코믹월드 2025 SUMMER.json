@@ -2,6 +2,28 @@
   "eventName": "코믹월드 2025 SUMMER",
   "booths": [
     {
+      "boothNumber": "BA_25",
+      "boothName": "SPRING DAY",
+      "promoUrl": "https://comicw.co.kr/participant/10238",
+      "orderUrl": "",
+      "images": [
+        "https://comicw.co.kr/data/file/participant/3024192937_Bt8eNj5z_9eec8e97f43e080e22598c4be229d5015ab15f59.png",
+        "https://comicw.co.kr/data/editor/2507/9cbd181945997e9e27e4ac90ac00091f_1752761189_3868.jpg",
+        "https://comicw.co.kr/data/editor/2507/9cbd181945997e9e27e4ac90ac00091f_1752761204_062.jpg",
+        "https://comicw.co.kr/data/editor/2505/b5f78ff7fa9ec57ba1ebf326efbbb64e_1747232916_4167.jpg",
+        "https://comicw.co.kr/data/editor/2505/b5f78ff7fa9ec57ba1ebf326efbbb64e_1747232916_4965.jpg",
+        "https://comicw.co.kr/data/editor/2505/b5f78ff7fa9ec57ba1ebf326efbbb64e_1747232838_3724.jpg",
+        "https://comicw.co.kr/data/editor/2505/b5f78ff7fa9ec57ba1ebf326efbbb64e_1747232838_4831.jpg"
+      ],
+      "genres": [
+        "음성합성엔진 (일본)",
+        "음성합성엔진 (한국)",
+        "프로젝트 세카이",
+        "호요버스",
+        "붕괴: 스타레일"
+      ]
+    },
+    {
       "boothNumber": "BC_09, 10",
       "boothName": "썸머 워프",
       "promoUrl": "https://x.com/llll4414_j/status/1937827571229757654",
@@ -367,6 +389,41 @@
       ]
     },
     {
+      "boothNumber": "BQ_13",
+      "boothName": "욜체리네",
+      "promoUrl": "https://x.com/cherrymeing/status/1945777191280849000",
+      "orderUrl": "",
+      "images": [
+        "https://comicw.co.kr/data/editor/2507/654a0029fcd14570fab0e99b7b668336_1752761206_5121.jpg",
+        "https://comicw.co.kr/data/editor/2507/654a0029fcd14570fab0e99b7b668336_1752761209_677.jpg",
+        "https://comicw.co.kr/data/editor/2507/654a0029fcd14570fab0e99b7b668336_1752761211_6269.jpg",
+        "https://comicw.co.kr/data/editor/2507/654a0029fcd14570fab0e99b7b668336_1752761213_2718.jpg",
+        "https://comicw.co.kr/data/editor/2507/654a0029fcd14570fab0e99b7b668336_1752761215_284.jpg",
+        "https://comicw.co.kr/data/editor/2507/654a0029fcd14570fab0e99b7b668336_1752761217_225.jpg"
+      ],
+      "genres": [
+        "프로젝트 세카이",
+        "윈드 브레이커",
+        "뱅드림"
+      ]
+    },
+    {
+      "boothNumber": "BQ_25, 26, 27, 28",
+      "boothName": "헤븐폴",
+      "promoUrl": "https://x.com/kgproject2/status/1942055047225024806",
+      "orderUrl": "",
+      "images": [
+        "https://comicw.co.kr/data/editor/2507/fdd85da37b572457e5cd88a3ab14d4e4_1752764075_9961.jpg",
+        "https://comicw.co.kr/data/editor/2507/fdd85da37b572457e5cd88a3ab14d4e4_1752764080_1315.jpg",
+        "https://comicw.co.kr/data/editor/2507/fdd85da37b572457e5cd88a3ab14d4e4_1752764082_8564.jpg",
+        "https://comicw.co.kr/data/editor/2507/fdd85da37b572457e5cd88a3ab14d4e4_1752764111_0797.jpg",
+        "https://comicw.co.kr/data/editor/2507/fdd85da37b572457e5cd88a3ab14d4e4_1752764114_3724.jpg"
+      ],
+      "genres": [
+        "오리지널 캐릭터"
+      ]
+    },
+    {
       "boothNumber": "BR_17, 18",
       "boothName": "단 스토어",
       "promoUrl": "https://x.com/danillust_/status/1938270124320166082",
@@ -524,6 +581,22 @@
       ]
     },
     {
+      "boothNumber": "CA_41, 42",
+      "boothName": "아이돌리쉬 세븐",
+      "promoUrl": "https://x.com/PP_zip/status/1942230170271932867",
+      "orderUrl": "",
+      "images": [
+        "https://comicw.co.kr/data/editor/2507/ad31ad9069aaba45adbc7e0af7426df8_1752761957_7406.png",
+        "https://comicw.co.kr/data/editor/2507/ad31ad9069aaba45adbc7e0af7426df8_1752761952_5546.png",
+        "https://comicw.co.kr/data/editor/2507/ad31ad9069aaba45adbc7e0af7426df8_1752761953_6268.png",
+        "https://comicw.co.kr/data/editor/2507/ad31ad9069aaba45adbc7e0af7426df8_1752761955_0216.png",
+        "https://comicw.co.kr/data/editor/2507/ad31ad9069aaba45adbc7e0af7426df8_1752761956_2896.png"
+      ],
+      "genres": [
+        "아이돌리쉬 세븐"
+      ]
+    },
+    {
       "boothNumber": "CA_53, 54",
       "boothName": "오직 하루마사",
       "promoUrl": "https://x.com/universe7770/status/1938143740578959441",
@@ -568,6 +641,20 @@
       ]
     },
     {
+      "boothNumber": "CB_53, 54",
+      "boothName": "헤일로를 잊지마세요!",
+      "promoUrl": "https://x.com/1beombeom/status/1939280245838020939",
+      "orderUrl": "https://witchform.com/deposit_form.php?idx=855673",
+      "images": [
+        "https://comicw.co.kr/data/file/participant/1028795674_FfWqab2l_4bbec4036b419e84eaecf559ce0e0f7cba431fe5_835x824.jpg",
+        "https://pbs.twimg.com/media/Gum0TWQW4AAl3_y?format=jpg&name=large",
+        "https://d2i2w6ttft7yxi.cloudfront.net/froala/2025/07/01/20250701102255_vco78gap4j.png"
+      ],
+      "genres": [
+        "블루 아카이브"
+      ]
+    },
+    {
       "boothNumber": "CC_03",
       "boothName": "블루앤써머",
       "promoUrl": "https://x.com/Blue_n_Summer/status/1938519109874143535",
@@ -583,6 +670,25 @@
       ],
       "genres": [
         "블루 아카이브"
+      ]
+    },
+    {
+      "boothNumber": "CC_39, 40",
+      "boothName": "오타쿠쨩 나니가스키",
+      "promoUrl": "https://www.postype.com/@kkoli-eventhall/post/19954959",
+      "orderUrl": "",
+      "images": [
+        "https://comicw.co.kr/data/file/participant/2109548702_UKMfQ7Cq_ef74f8a7ba1319f8e0dbfb75309272f17c4d97b6.jpg"
+      ],
+      "genres": [
+        "리그 오브 레전드",
+        "버츄얼",
+        "스텔라이브",
+        "블루 록",
+        "주술회전",
+        "하이큐",
+        "극락가",
+        "발로란트"
       ]
     },
     {
@@ -649,6 +755,23 @@
         "언더테일",
         "에즈월드",
         "괴담출근"
+      ]
+    },
+    {
+      "boothNumber": "CE_19, 20",
+      "boothName": "여기사장나오라그래",
+      "promoUrl": "https://x.com/Child127_/status/1945854899276964299",
+      "orderUrl": "",
+      "images": [
+        "https://comicw.co.kr/data/file/participant/1028144925_HxcUWgsv_3ce2c2a463ba82073a6cef2f27d7de58e12ee123.png",
+        "https://pbs.twimg.com/media/GwEQbeuWIAEUAqG?format=jpg&name=large",
+        "https://pbs.twimg.com/media/GwEQcUmWMAA7OWb?format=jpg&name=large",
+        "https://pbs.twimg.com/media/GwEQdIXbsAEknOq?format=jpg&name=medium"
+      ],
+      "genres": [
+        "프로젝트 세카이",
+        "음성합성엔진 (일본)",
+        "화산귀환"
       ]
     },
     {
@@ -827,6 +950,24 @@
       ]
     },
     {
+      "boothNumber": "CG_09",
+      "boothName": "지금부터 듀얼!",
+      "promoUrl": "https://comicw.co.kr/participant/10258",
+      "orderUrl": "",
+      "images": [
+        "https://comicw.co.kr/data/editor/2507/c0dadbf01acebf2ba6ebab6c8adf44e8_1752773027_546.png",
+        "https://comicw.co.kr/data/editor/2507/c0dadbf01acebf2ba6ebab6c8adf44e8_1752773013_1575.png",
+        "https://comicw.co.kr/data/editor/2507/c0dadbf01acebf2ba6ebab6c8adf44e8_1752772978_221.png",
+        "https://comicw.co.kr/data/editor/2507/c0dadbf01acebf2ba6ebab6c8adf44e8_1752772978_3923.png",
+        "https://comicw.co.kr/data/editor/2507/c0dadbf01acebf2ba6ebab6c8adf44e8_1752772978_6786.png"
+      ],
+      "genres": [
+        "유희왕 OCG",
+        "호요버스",
+        "원신"
+      ]
+    },
+    {
       "boothNumber": "CG_11",
       "boothName": "트릭컬 카르텔",
       "promoUrl": "https://x.com/Kim_Dante_Art/status/1937453491611664705",
@@ -918,6 +1059,23 @@
       ]
     },
     {
+      "boothNumber": "CG_47",
+      "boothName": "이세계 오락실",
+      "promoUrl": "https://comicw.co.kr/participant/10250",
+      "orderUrl": "",
+      "images": [
+        "https://comicw.co.kr/data/editor/2507/c23754e3fbcb64b1d5dec1149eef886a_1752766790_5432.png",
+        "https://comicw.co.kr/data/editor/2507/c23754e3fbcb64b1d5dec1149eef886a_1752766821_0744.jpg"
+      ],
+      "genres": [
+        "오모리",
+        "엘소드",
+        "포켓몬스터",
+        "트랜스포머",
+        "음성합성엔진 (일본)"
+      ]
+    },
+    {
       "boothNumber": "CG_60",
       "boothName": "파스텔라",
       "promoUrl": "https://witchform.com/payform/?uuid=0Y3WDWFU4A",
@@ -979,6 +1137,20 @@
       ]
     },
     {
+      "boothNumber": "CH_67",
+      "boothName": "첫 서코는 입대 전에!",
+      "promoUrl": "https://x.com/sol_ra00sol_ra/status/1942885374327673264",
+      "orderUrl": "",
+      "images": [
+        "https://pbs.twimg.com/media/GvaD84kWUAEJnZL?format=jpg&name=large",
+        "https://pbs.twimg.com/media/GvaD84bWgAAFhmX?format=jpg&name=large",
+        "https://pbs.twimg.com/media/GvaD82RbcAAm17R?format=jpg&name=large"
+      ],
+      "genres": [
+        "블루 아카이브"
+      ]
+    },
+    {
       "boothNumber": "CI_23",
       "boothName": "몽그작몽그작",
       "promoUrl": "https://x.com/hyem0ng",
@@ -993,6 +1165,31 @@
         "봇치 더 록",
         "아이돌 마스터",
         "음성합성엔진 (일본)"
+      ]
+    },
+    {
+      "boothNumber": "CI_34",
+      "boothName": "아리프로",
+      "promoUrl": "https://www.pixiv.net/artworks/132809750",
+      "orderUrl": "",
+      "images": [
+        "https://comicw.co.kr/data/editor/2507/93678674e1027d5f306894692dce8153_1752762242_0808.png",
+        "https://comicw.co.kr/data/editor/2507/93678674e1027d5f306894692dce8153_1752762242_6806.png",
+        "https://comicw.co.kr/data/editor/2507/93678674e1027d5f306894692dce8153_1752762242_3239.png",
+        "https://comicw.co.kr/data/editor/2507/93678674e1027d5f306894692dce8153_1752762242_6118.png",
+        "https://comicw.co.kr/data/editor/2507/93678674e1027d5f306894692dce8153_1752762242_5433.png",
+        "https://comicw.co.kr/data/editor/2507/93678674e1027d5f306894692dce8153_1752762242_4764.png",
+        "https://comicw.co.kr/data/editor/2507/93678674e1027d5f306894692dce8153_1752762241_9945.png",
+        "https://comicw.co.kr/data/editor/2507/93678674e1027d5f306894692dce8153_1752762343_4873.png"
+      ],
+      "genres": [
+        "블루 아카이브",
+        "프로젝트 세카이",
+        "버츄얼",
+        "홀로라이브",
+        "봇치 더 록",
+        "아이돌 마스터",
+        "장송의 프리렌"
       ]
     },
     {
@@ -1011,6 +1208,26 @@
       ],
       "genres": [
         "승리의 여신: 니케"
+      ]
+    },
+    {
+      "boothNumber": "CI_54",
+      "boothName": "시퍼런봄청춘반란",
+      "promoUrl": "https://comicw.co.kr/participant/10254",
+      "orderUrl": "",
+      "images": [
+        "https://comicw.co.kr/data/editor/2507/thumb-088d7cf148d9ef3f0b58e44d69b50f62_1752770203_5884_835x1170.jpg",
+        "https://comicw.co.kr/data/editor/2507/thumb-088d7cf148d9ef3f0b58e44d69b50f62_1752770203_3952_835x1223.jpg",
+        "https://comicw.co.kr/data/editor/2507/thumb-088d7cf148d9ef3f0b58e44d69b50f62_1752770203_1651_835x1656.jpg"
+      ],
+      "genres": [
+        "명일방주",
+        "86 ─에이티식스─",
+        "호요버스",
+        "원신",
+        "블루 아카이브",
+        "음성합성엔진 (일본)",
+        "오모리"
       ]
     },
     {
@@ -1065,6 +1282,35 @@
       ],
       "genres": [
         "오리지널 캐릭터"
+      ]
+    },
+    {
+      "boothNumber": "CJ_58",
+      "boothName": "누룽지의 클레이공방",
+      "promoUrl": "https://www.youtube.com/@%EB%88%84%EB%A3%BD%EC%A7%80%ED%81%B4%EB%A0%88%EC%9D%B4%EA%B3%B5%EB%B0%A9",
+      "orderUrl": "",
+      "images": [
+        "https://comicw.co.kr/data/editor/2507/96ef813133a88171755b4b5a040c0eea_1752766137_7407.png",
+        "https://comicw.co.kr/data/editor/2507/96ef813133a88171755b4b5a040c0eea_1752766160_111.png",
+        "https://comicw.co.kr/data/editor/2507/96ef813133a88171755b4b5a040c0eea_1752766160_2386.png"
+      ],
+      "genres": [
+        "명조: 워더링 웨이브"
+      ]
+    },
+    {
+      "boothNumber": "CJ_62",
+      "boothName": "레몬크림소다",
+      "promoUrl": "https://x.com/miae_gs/status/1945148665401606284",
+      "orderUrl": "",
+      "images": [
+        "https://comicw.co.kr/data/editor/2507/ca5658370c9b8fe4452e9bd02a30012d_1752761698_8663.jpg",
+        "https://comicw.co.kr/data/editor/2507/ca5658370c9b8fe4452e9bd02a30012d_1752761767_0725.png",
+        "https://pbs.twimg.com/media/Gv6Nid6XQAAvhJP?format=jpg&name=4096x4096"
+      ],
+      "genres": [
+        "호요버스",
+        "원신"
       ]
     },
     {
@@ -1154,6 +1400,23 @@
       ]
     },
     {
+      "boothNumber": "CK_54",
+      "boothName": "mfmfpark.",
+      "promoUrl": "https://comicw.co.kr/participant/10257",
+      "orderUrl": "",
+      "images": [
+        "https://comicw.co.kr/data/editor/2507/cd715ee60cd19b9f0af3bc3ba4d8d285_1752771118_3906.png",
+        "https://comicw.co.kr/data/editor/2507/cd715ee60cd19b9f0af3bc3ba4d8d285_1752770766_6945.png",
+        "https://comicw.co.kr/data/editor/2507/cd715ee60cd19b9f0af3bc3ba4d8d285_1752770766_5721.png"
+      ],
+      "genres": [
+        "버츄얼",
+        "홀로라이브",
+        "히프노시스 마이크",
+        "오리지널 캐릭터"
+      ]
+    },
+    {
       "boothNumber": "CK_69",
       "boothName": "미소녀잠뽕",
       "promoUrl": "https://x.com/yjas_k/status/1944955093327262160",
@@ -1182,6 +1445,19 @@
       "genres": [
         "프로젝트 세카이",
         "음성합성엔진 (일본)"
+      ]
+    },
+    {
+      "boothNumber": "CL_40",
+      "boothName": "Mix Nuts!",
+      "promoUrl": "https://x.com/nenjyuuu/",
+      "orderUrl": "https://witchform.com/p/yPpX5BlhOg",
+      "images": [
+        "https://comicw.co.kr/data/editor/2507/6418f5efb12ae042511ee4f4ad2e7c9a_1752761338_1014.png",
+        "https://comicw.co.kr/data/editor/2507/6418f5efb12ae042511ee4f4ad2e7c9a_1752761335_7295.png"
+      ],
+      "genres": [
+        "괴담출근"
       ]
     },
     {
@@ -1232,6 +1508,51 @@
         "음성합성엔진 (일본)",
         "에일리언 스테이지",
         "데뷔 못 하면 죽는 병 걸림"
+      ]
+    },
+    {
+      "boothNumber": "CN_26, 27",
+      "boothName": "서브컬쳐 스토어",
+      "promoUrl": "https://comicw.co.kr/participant/10253",
+      "orderUrl": "",
+      "images": [
+        "https://comicw.co.kr/data/editor/2507/0fcebb1d4ef705395b12c26fbedff9cf_1752768669_6074.jpg",
+        "https://comicw.co.kr/data/editor/2507/0fcebb1d4ef705395b12c26fbedff9cf_1752768679_2387.jpg",
+        "https://comicw.co.kr/data/editor/2507/0fcebb1d4ef705395b12c26fbedff9cf_1752768685_3291.jpg"
+      ],
+      "genres": [
+        "강철의 연금술사",
+        "포켓몬스터",
+        "젤다의 전설",
+        "스플레툰"
+      ]
+    },
+    {
+      "boothNumber": "CO_24",
+      "boothName": "세카이 갈끄니까!!",
+      "promoUrl": "https://comicw.co.kr/participant/10248",
+      "orderUrl": "",
+      "images": [
+        "https://comicw.co.kr/data/editor/2507/57a3621617a9be8d9339fa2f5f61e4a8_1752765714_2042.png",
+        "https://comicw.co.kr/data/editor/2507/57a3621617a9be8d9339fa2f5f61e4a8_1752764390_5442.png",
+        "https://comicw.co.kr/data/editor/2507/57a3621617a9be8d9339fa2f5f61e4a8_1752764387_2055.jpg"
+      ],
+      "genres": [
+        "프로젝트 세카이",
+        "약사의 혼잣말"
+      ]
+    },
+    {
+      "boothNumber": "CO_28",
+      "boothName": "10년장르취급주의",
+      "promoUrl": "",
+      "orderUrl": "",
+      "images": [
+        "https://comicw.co.kr/data/editor/2507/782e996340b852e8dec804e2980d3b9d_1752770852_0512.png"
+      ],
+      "genres": [
+        "엘소드",
+        "좀비고등학교"
       ]
     },
     {
@@ -1362,6 +1683,27 @@
       "genres": [
         "호요버스",
         "붕괴: 스타레일"
+      ]
+    },
+    {
+      "boothNumber": "CP_16",
+      "boothName": "몬스터들의 쉼터",
+      "promoUrl": "https://comicw.co.kr/participant/10244",
+      "orderUrl": "",
+      "images": [
+        "https://comicw.co.kr/data/editor/2507/a1b43a6dbf6ea4363a5cd8513b56f5c4_1752763216_1643.png",
+        "https://comicw.co.kr/data/editor/2507/a1b43a6dbf6ea4363a5cd8513b56f5c4_1752763216_247.png",
+        "https://comicw.co.kr/data/editor/2507/a1b43a6dbf6ea4363a5cd8513b56f5c4_1752763216_3073.png",
+        "https://comicw.co.kr/data/editor/2507/a1b43a6dbf6ea4363a5cd8513b56f5c4_1752763216_3701.png",
+        "https://comicw.co.kr/data/editor/2507/a1b43a6dbf6ea4363a5cd8513b56f5c4_1752763216_4322.png",
+        "https://comicw.co.kr/data/editor/2507/a1b43a6dbf6ea4363a5cd8513b56f5c4_1752763216_4933.png",
+        "https://comicw.co.kr/data/editor/2507/a1b43a6dbf6ea4363a5cd8513b56f5c4_1752763216_553.png",
+        "https://comicw.co.kr/data/editor/2507/a1b43a6dbf6ea4363a5cd8513b56f5c4_1752763216_6324.png",
+        "https://comicw.co.kr/data/editor/2507/a1b43a6dbf6ea4363a5cd8513b56f5c4_1752763216_7091.png"
+      ],
+      "genres": [
+        "디지몬",
+        "팰월드"
       ]
     },
     {
